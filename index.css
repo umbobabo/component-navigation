@@ -1,0 +1,41 @@
+@import "@economist/component-icon";
+
+.navigation__primary {
+  background: var(--color-kiev);
+  height: var(--Masthead--height, 70px);
+}
+
+.navigation__link-search use {
+  fill: white;
+}
+.navigation__primary,
+.navigation__secondary {
+  /* Todo, remove this from here and apply to the context */
+  max-width: 1190px;
+}
+
+.navigation__secondary{
+  background: var(--color-berlin);
+}
+
+.navigation__secondary-inner {
+  margin: 0;
+  padding: 0;
+}
+.navigation__secondary .list__item {
+  list-style: none;
+  display: inline-block;
+}
+.navigation__secondary-link {
+  text-decoration: none;
+  color: var(--color-moscow);
+  padding: var(--grid-spacing-fox);
+  display: table-cell;
+}
+.list__item:not(:last-child):after {
+  content: '';
+  display: table-cell;
+  background: var(--color-moscow);
+  width: 1px;
+  height: var(--grid-spacing-fox);
+}
