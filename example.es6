@@ -10,7 +10,7 @@ const links = {
   myeconomist: {
     title: 'My Economist',
     text: 'My Economist',
-    href: 'http://www.economist.com/rights/',
+    href: 'https://www.economist.com/user',
   },
   logout: {
     title: 'Log out',
