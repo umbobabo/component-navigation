@@ -9,13 +9,13 @@
 }
 
 .navigation__link-search {
-  padding: 5px 10px;
+  padding: 5px var(--grid-gutter-s);
   vertical-align: middle;
-  width: 50px;
+  width: 1em;
 }
 
 .navigation__link-search use {
-  fill: white;
+  fill: var(--color-thimphu);
 }
 
 .navigation__primary-inner {
@@ -36,11 +36,6 @@
 
 .navigation__primary-expander {
    width: 100%;
-}
-
-.navigation__primary-search,
-.navigation__primary-logo {
-   width: 100px;
 }
 
 .navigation__secondary{
@@ -83,5 +78,5 @@
 }
 
 .navigation--anonymous .list__item:nth-child(2):after {
-   transform: rotate(24deg);
+   transform: rotate(20deg);
 }

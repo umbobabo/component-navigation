@@ -37,5 +37,6 @@ export default (
      <Navigation className="navigation navigation--subscriber" links={subscriber} />
      <Navigation className="navigation navigation--registered" links={registered} />
      <Navigation className="navigation navigation--anonymous" links={anomymous} />
+     <Navigation className="navigation"/>
    </div>
 );

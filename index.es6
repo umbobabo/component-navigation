@@ -8,11 +8,24 @@ export default class Navigation extends React.Component {
     return {
       className: React.PropTypes.string,
       children: React.PropTypes.element,
-      links: React.PropTypes.array.isRequired,
+      links: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
     };
   }
 
   render() {
+    let bottomBar = '';
+    if (this.props.links) {
+      bottomBar = (<div className="navigation__secondary">
+         <List className="navigation__secondary-inner">
+         {this.props.links.map((contextItem) => {
+            return (<a {...contextItem} className="navigation__secondary-link">
+               {contextItem.title}
+            </a>);
+          })}
+          </List>
+       </div>);
+    }
+
     return (
       <div className={this.props.className}>
          <div className="navigation__primary">
@@ -29,15 +42,7 @@ export default class Navigation extends React.Component {
              </a>
            </div>
          </div>
-         <div className="navigation__secondary">
-           <List className="navigation__secondary-inner">
-            {this.props.links.map((contextItem) => {
-              return (<a {...contextItem} className="navigation__secondary-link">
-                 {contextItem.title}
-                 </a>);
-            })}
-           </List>
-         </div>
+         {bottomBar}
       </div>
     );
   }
