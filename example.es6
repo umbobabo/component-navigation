@@ -1,36 +1,42 @@
 import Navigation from './index.es6';
 import React from 'react';
-import Icon from '@economist/component-icon';
-import List from '@economist/component-list';
 
-const context = [
-  {
+const links = {
+  subscribe: {
     title: 'Subscribe',
     text: 'Subscribe',
-    href: 'http://www.economistgroupmedia.com',
-  }, {
-    title: 'Economist',
-    text: 'Economist',
-    href: 'http://www.economist.com/rights/',
+    href: 'https://subscriptions.economist.com/GLB/STUCAMP/MAST/',
   },
-];
-function mapContextToAnchor(contextItem) {
-  return (<a {...contextItem} className="navigation__secondary-link">{contextItem.title}</a>);
-}
+  myeconomist: {
+    title: 'My Economist',
+    text: 'My Economist',
+    href: 'https://www.economist.com/user',
+  },
+  logout: {
+    title: 'Log out',
+    text: 'Log out',
+    href: 'http://www.economist.com/log/',
+  },
+  register: {
+    title: 'Register',
+    text: 'Register',
+    href: 'https://www.economist.com/user/register',
+  },
+  login: {
+    title: 'Log in',
+    text: 'Log in',
+    href: 'https://www.economist.com/user/login',
+  },
+};
+
+const subscriber = [ links.myeconomist, links.logout ];
+const registered = [ links.subscribe, links.myeconomist, links.logout ];
+const anomymous = [ links.subscribe, links.register, links.login ];
 export default (
-  <Navigation className="navigation">
-    <div className="navigation__primary">
-      <div className="navigation__primary-inner">
-        <a href="http://www.economist.com" className="navigation__link-logo">
-          <Icon icon="economist"/>
-        </a>
-        <a href="http://www.economist.com/search" target="_blank" className="navigation__link-search">
-          <Icon icon="magnifier"/>
-        </a>
-      </div>
-    </div>
-    <div className="navigation__secondary">
-      <List className="navigation__secondary-inner">{context.map(mapContextToAnchor)}</List>
-    </div>
-  </Navigation>
+   <div>
+     <Navigation className="navigation navigation--subscriber" links={subscriber} />
+     <Navigation className="navigation navigation--registered" links={registered} />
+     <Navigation className="navigation navigation--anonymous" links={anomymous} />
+     <Navigation className="navigation"/>
+   </div>
 );

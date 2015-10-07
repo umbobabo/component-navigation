@@ -1,41 +1,82 @@
 @import "@economist/component-icon";
 
+.navigation {
+   font-size: 1rem;
+}
+
 .navigation__primary {
   background: var(--color-kiev);
-  height: var(--Masthead--height, 70px);
+}
+
+.navigation__link-search {
+  padding: 5px var(--grid-gutter-s);
+  vertical-align: middle;
+  width: 1em;
 }
 
 .navigation__link-search use {
-  fill: white;
+  fill: var(--color-thimphu);
 }
-.navigation__primary,
-.navigation__secondary {
-  /* Todo, remove this from here and apply to the context */
-  max-width: 1190px;
+
+.navigation__primary-inner {
+   display: flex;
+   line-height: 1em;
+}
+
+.navigation__link-search svg,
+.navigation__link-logo svg {
+   float: left;
+}
+
+.navigation__primary-expander,
+.navigation__link-search,
+.navigation__link-logo {
+   display: table-cell;
+}
+
+.navigation__primary-expander {
+   width: 100%;
 }
 
 .navigation__secondary{
   background: var(--color-berlin);
+  text-align: right;
 }
 
 .navigation__secondary-inner {
   margin: 0;
   padding: 0;
+  display: inline-block;
+  line-height: 0.5em;
 }
+
 .navigation__secondary .list__item {
   list-style: none;
-  display: inline-block;
+  display: table-cell;
+  position: relative;
 }
+
 .navigation__secondary-link {
   text-decoration: none;
-  color: var(--color-moscow);
-  padding: var(--grid-spacing-fox);
-  display: table-cell;
+  color: var(--color-kiev);
+  padding: var(--grid-spacing-sloth);
+  display: block;
+  font-size: var(--text-size-step--2);
+  font-family: var(--fontfamily-body);
 }
+
 .list__item:not(:last-child):after {
   content: '';
-  display: table-cell;
-  background: var(--color-moscow);
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  background: var(--color-kiev);
   width: 1px;
-  height: var(--grid-spacing-fox);
+  height: var(--grid-spacing-sloth);
+  margin-top: calc(-var(--grid-spacing-sloth)/2);
+}
+
+.navigation--anonymous .list__item:nth-child(2):after {
+   transform: rotate(20deg);
 }
