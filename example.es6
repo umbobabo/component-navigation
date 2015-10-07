@@ -34,9 +34,34 @@ const registered = [ links.subscribe, links.myeconomist, links.logout ];
 const anomymous = [ links.subscribe, links.register, links.login ];
 export default (
    <div>
+     <Navigation className="navigation navigation--registered navigation--sticked" links={registered} />
      <Navigation className="navigation navigation--subscriber" links={subscriber} />
-     <Navigation className="navigation navigation--registered" links={registered} />
      <Navigation className="navigation navigation--anonymous" links={anomymous} />
      <Navigation className="navigation"/>
+     <p>Stretch the page to test the sticky</p>
+     <p>Stretch the page to test the sticky</p>
+     <p>Stretch the page to test the sticky</p>
+     <p>Stretch the page to test the sticky</p>
+     <p>Stretch the page to test the sticky</p>
+     <p>Stretch the page to test the sticky</p>
+     <p>Stretch the page to test the sticky</p>
+     <p>Stretch the page to test the sticky</p>
+     <p>Stretch the page to test the sticky</p>
+     <p>Stretch the page to test the sticky</p>
+     <p>Stretch the page to test the sticky</p>
+     <p>Stretch the page to test the sticky</p>
+     <p>Stretch the page to test the sticky</p>
+     <p>Stretch the page to test the sticky</p>
+     <p>Stretch the page to test the sticky</p>
+     <p>Stretch the page to test the sticky</p>
+     <p>Stretch the page to test the sticky</p>
+     <p>Stretch the page to test the sticky</p>
+     <p>Stretch the page to test the sticky</p>
+     <p>Stretch the page to test the sticky</p>
+     <p>Stretch the page to test the sticky</p>
+     <p>Stretch the page to test the sticky</p>
+     <p>Stretch the page to test the sticky</p>
+     <p>Stretch the page to test the sticky</p>
+     <p>Stretch the page to test the sticky</p>
    </div>
 );
