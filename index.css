@@ -4,6 +4,28 @@
   font-size: 1rem;
 }
 
+.navigation__secondary-autohide
+{
+    transition-duration: .5s;
+    transition-timing-function: cubic-bezier( 0.215, 0.610, 0.355, 1.000 );
+    transition-property: transform;
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+}
+
+.navigation--autohide {
+   margin-bottom: 47px;
+}
+.navigation__secondary-autohide--hidden
+{
+    -webkit-transform: translateY( -100% );
+    -ms-transform: translateY( -100% );
+    transform: translateY( -100% );
+    width: 100%;
+}
+
+
 .navigation--sticked {
    position: sticky;
    top: 0px;
@@ -12,6 +34,7 @@
 
 .navigation__primary {
   background: var(--color-kiev);
+  z-index: 2;
 }
 
 .navigation__link-search {
