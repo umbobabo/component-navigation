@@ -61,11 +61,14 @@ export default class AutoHide extends React.Component {
     this.wScrollDiff		= this.wScrollBefore - this.wScrollCurrent;
 
     // Scrolling up
-    if (this.wScrollDiff > 0) {
-      this.show();
-    } else {
-      // Scrolling down
-      this.hide();
+    if (this.wScrollCurrent > 0) {
+      if (this.wScrollDiff > 20) {
+        this.show();
+      }
+      if (this.wScrollDiff < -20) {
+        // Scrolling down
+        this.hide();
+      }
     }
     this.wScrollBefore = this.wScrollCurrent;
   }

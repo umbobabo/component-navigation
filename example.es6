@@ -29,50 +29,15 @@ const links = {
   },
 };
 
-const subscriber = [ links.myeconomist, links.logout ];
+// const subscriber = [ links.myeconomist, links.logout ];
+// const anomymous = [ links.subscribe, links.register, links.login ];
 const registered = [ links.subscribe, links.myeconomist, links.logout ];
-const anomymous = [ links.subscribe, links.register, links.login ];
 export default (
    <div>
      <Navigation className="navigation navigation--registered navigation--sticked" links={registered}
        svgUri="assets/icons.svg"
      />
      <p>First paragraph</p>
-     <p>Stretch the page to test the sticky</p>
-     <p>Stretch the page to test the sticky</p>
-     <p>Stretch the page to test the sticky</p>
-     <p>Stretch the page to test the sticky</p>
-     <Navigation className="navigation navigation--subscriber"
-       autohide={false} links={subscriber}
-       svgUri="assets/icons.svg"
-     />
-     <p>Stretch the page to test the sticky</p>
-     <p>Stretch the page to test the sticky</p>
-     <p>Stretch the page to test the sticky</p>
-     <p>Stretch the page to test the sticky</p>
-     <p>Stretch the page to test the sticky</p>
-     <p>Stretch the page to test the sticky</p>
-     <Navigation className="navigation navigation--anonymous"
-       autohide={false} links={anomymous}
-       svgUri="assets/icons.svg"
-     />
-     <p>Stretch the page to test the sticky</p>
-     <p>Stretch the page to test the sticky</p>
-     <p>Stretch the page to test the sticky</p>
-     <p>Stretch the page to test the sticky</p>
-     <p>Stretch the page to test the sticky</p>
-     <p>Stretch the page to test the sticky</p>
-     <Navigation
-       className="navigation"
-       autohide={false}
-       svgUri="assets/icons.svg"
-     />
-     <p>Stretch the page to test the sticky</p>
-     <p>Stretch the page to test the sticky</p>
-     <p>Stretch the page to test the sticky</p>
-     <p>Stretch the page to test the sticky</p>
-     <p>Stretch the page to test the sticky</p>
-     <p>Stretch the page to test the sticky</p>
      <p>Stretch the page to test the sticky</p>
      <p>Stretch the page to test the sticky</p>
      <p>Stretch the page to test the sticky</p>
