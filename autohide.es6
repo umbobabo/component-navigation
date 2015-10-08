@@ -6,7 +6,7 @@ export default class AutoHide extends React.Component {
      return {
        className: React.PropTypes.string,
        children: React.PropTypes.element,
-       elClassHidden: React.PropTypes.string,
+       hiddenClass: React.PropTypes.string,
        throttleTimeout: React.PropTypes.number,
      };
    }
@@ -14,84 +14,76 @@ export default class AutoHide extends React.Component {
    static get defaultProps() {
      return {
        hiddenClass: 'hidden',
-       throttleTimeout: 300,
+       throttleTimeout: 500,
      };
    }
 
-   componentWillMount() {
-    this.state = { hiddenClass: '' };
-     if (typeof window !== 'undefined') {
-       this.dHeight = 0;
-       this.wHeight = 0;
-       this.wScrollCurrent = 0;
-       this.wScrollBefore = 0;
-       this.wScrollDiff = 0;
-     }
-   }
-
-   constructor() {
+  constructor() {
     super();
     this.throttle = this.throttle.bind(this);
   }
 
-   throttle ( delay, fn )
-   {
-     let last;
-     let deferTimer;
-     return function()
-     {
-      var context = this, args = arguments, now = +new Date;
-      if( last && now < last + delay )
-      {
+  componentWillMount() {
+    this.state = { hiddenClass: '' };
+    if (typeof window !== 'undefined') {
+      this.wScrollCurrent = 0;
+      this.wScrollBefore = 0;
+      this.wScrollDiff = 0;
+    }
+  }
+
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.throttle(this.props.throttleTimeout, () => {
+      this.wScrollCurrent	= window.pageYOffset;
+      this.wScrollDiff		= this.wScrollBefore - this.wScrollCurrent;
+
+      // Scrolling up
+      if (this.wScrollDiff > 0) {
+        this.show();
+      } else {
+        // Scrolling down
+        this.hide();
+      }
+      this.wScrollBefore = this.wScrollCurrent;
+    }));
+  }
+
+  throttle(delay, Reflect) {
+    let last = null;
+    let deferTimer = null;
+    return () => {
+      const args = arguments;
+      const now = Number(new Date());
+      if (last && now < last + delay) {
         clearTimeout(deferTimer);
         deferTimer = setTimeout(() => {
           last = now;
-          fn.apply(context, args);
+          Reflect.apply(this, args);
         }, delay);
-      }
-      else
-      {
-        last = now;
-        fn.apply(context, args);
-      }
-      };
-   }
-
-   componentDidMount() {
-    window.addEventListener( 'scroll', this.throttle(this.props.throttleTimeout, () => {
-         this.dHeight			= document.body.offsetHeight;
-         this.wHeight			= window.innerHeight;
-         this.wScrollCurrent	= window.pageYOffset;
-         this.wScrollDiff		= this.wScrollBefore - this.wScrollCurrent;
-
-      // Scrolling up
-      if (this.wScrollDiff > 0){
-         console.log('a');
-         this.show();
       } else {
-         //Scrolling down
-         this.hide();
+        last = now;
+        Reflect.apply(this, args);
       }
+    };
+  }
 
-      this.wScrollBefore = this.wScrollCurrent;
-      }));
-   }
-
-
-   hide() {
-      const hideClass = `${this.props.className}-autohide--${this.props.hiddenClass}`;
-      this.setState({
-         hiddenClass: hideClass
-      });
-   }
+  hide() {
+    const hideClass = `${this.props.className}-autohide--${this.props.hiddenClass}`;
+    this.setState({
+      hiddenClass: hideClass,
+    });
+  }
 
    show() {
-      this.setState({
-         hiddenClass: ''
-      });
+     this.setState({
+       hiddenClass: '',
+     });
    }
 
    render() {
-     return <div className={`${this.props.className} ${this.props.className}-autohide ${this.state.hiddenClass}`}>{this.props.children}</div>
+     return (<div
+       className={`${this.props.className} ${this.props.className}-autohide ${this.state.hiddenClass}`}
+             >{this.props.children}</div>);
    }
 }

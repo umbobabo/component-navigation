@@ -2,4 +2,6 @@
 @import '@economist/component-palette';
 @import '@economist/component-grid';
 @import "@economist/component-icon";
+@import "sticked.css";
+@import "autohide.css";
 @import "index.css";

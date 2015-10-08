@@ -2,7 +2,7 @@ import React from 'react';
 import Icon from '@economist/component-icon';
 import List from '@economist/component-list';
 import StickyPosition from 'react-sticky-position';
-import AutoHide from './autohide';
+import AutoHide from './autohide.es6';
 
 export default class Navigation extends React.Component {
 
