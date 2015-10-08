@@ -1,6 +1,8 @@
 import React from 'react';
 import Icon from '@economist/component-icon';
 import List from '@economist/component-list';
+import StickyPosition from 'react-sticky-position';
+import AutoHide from './autohide.es6';
 
 export default class Navigation extends React.Component {
 
@@ -9,25 +11,41 @@ export default class Navigation extends React.Component {
       className: React.PropTypes.string,
       children: React.PropTypes.element,
       links: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
+      autohide: React.PropTypes.boolean,
+    };
+  }
+
+  static get defaultProps() {
+    return {
+      autohide: true,
     };
   }
 
   render() {
     let bottomBar = '';
+    let autohide = '';
     if (this.props.links) {
-      bottomBar = (<div className="navigation__secondary">
-         <List className="navigation__secondary-inner">
+      const innerBottomBar = (<List className="navigation__secondary-inner">
          {this.props.links.map((contextItem) => {
-            return (<a {...contextItem} className="navigation__secondary-link">
+           return (<a {...contextItem} className="navigation__secondary-link">
                {contextItem.title}
             </a>);
-          })}
-          </List>
-       </div>);
+         })}
+      </List>);
+      if (this.props.autohide) {
+        autohide = ' navigation--autohide';
+        bottomBar = (<AutoHide className="navigation__secondary">
+            {innerBottomBar}
+          </AutoHide>);
+      } else {
+        bottomBar = (<div className="navigation__secondary">
+            {innerBottomBar}
+          </div>);
+      }
     }
 
     return (
-      <div className={this.props.className}>
+      <StickyPosition className={`${this.props.className} ${autohide}`}>
          <div className="navigation__primary">
            <div className="navigation__primary-inner">
              <a href="http://www.economist.com" className="navigation__link-logo">
@@ -43,7 +61,7 @@ export default class Navigation extends React.Component {
            </div>
          </div>
          {bottomBar}
-      </div>
+      </StickyPosition>
     );
   }
 }

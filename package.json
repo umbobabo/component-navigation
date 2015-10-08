@@ -128,7 +128,8 @@
   "dependencies": {
     "@economist/component-icon": "^3.0.1",
     "@economist/component-list": "^1.1.2",
-    "react": "^0.14.0-rc"
+    "react": "^0.14.0-rc||^0.14.0",
+    "react-sticky-position": "^2.0.0"
   },
   "devDependencies": {
     "@economist/component-devpack": "^3.4.3",

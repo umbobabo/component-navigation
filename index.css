@@ -1,11 +1,12 @@
 @import "@economist/component-icon";
 
 .navigation {
-   font-size: 1rem;
+  font-size: 1rem;
 }
 
 .navigation__primary {
   background: var(--color-kiev);
+  z-index: 2;
 }
 
 .navigation__link-search {
@@ -78,5 +79,5 @@
 }
 
 .navigation--anonymous .list__item:nth-child(2):after {
-   transform: rotate(20deg);
+  transform: rotate(20deg);
 }
