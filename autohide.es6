@@ -14,17 +14,13 @@ export default class AutoHide extends React.Component {
    static get defaultProps() {
      return {
        hiddenClass: 'hidden',
-       throttleTimeout: 500,
+       throttleTimeout: 200,
      };
    }
 
-  constructor() {
-    super();
-    this.throttle = this.throttle.bind(this);
-  }
-
   componentWillMount() {
     this.state = { hiddenClass: '' };
+    this.onScrollHandler = this.throttle(this.props.throttleTimeout, this.scrollManager);
     if (typeof window !== 'undefined') {
       this.wScrollCurrent = 0;
       this.wScrollBefore = 0;
@@ -32,24 +28,15 @@ export default class AutoHide extends React.Component {
     }
   }
 
-
   componentDidMount() {
-    window.addEventListener('scroll', this.throttle(this.props.throttleTimeout, () => {
-      this.wScrollCurrent	= window.pageYOffset;
-      this.wScrollDiff		= this.wScrollBefore - this.wScrollCurrent;
-
-      // Scrolling up
-      if (this.wScrollDiff > 0) {
-        this.show();
-      } else {
-        // Scrolling down
-        this.hide();
-      }
-      this.wScrollBefore = this.wScrollCurrent;
-    }));
+    window.addEventListener('scroll', this.onScrollHandler);
   }
 
-  throttle(delay, Reflect) {
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScrollHandler);
+  }
+
+  throttle(delay, func) {
     let last = null;
     let deferTimer = null;
     return () => {
@@ -59,13 +46,28 @@ export default class AutoHide extends React.Component {
         clearTimeout(deferTimer);
         deferTimer = setTimeout(() => {
           last = now;
-          Reflect.apply(this, args);
+          /* eslint-disable prefer-reflect */
+          func.apply(this, args);
         }, delay);
       } else {
         last = now;
-        Reflect.apply(this, args);
+        func.apply(this, args);
       }
     };
+  }
+
+  scrollManager() {
+    this.wScrollCurrent	= window.pageYOffset;
+    this.wScrollDiff		= this.wScrollBefore - this.wScrollCurrent;
+
+    // Scrolling up
+    if (this.wScrollDiff > 0) {
+      this.show();
+    } else {
+      // Scrolling down
+      this.hide();
+    }
+    this.wScrollBefore = this.wScrollCurrent;
   }
 
   hide() {
@@ -75,11 +77,11 @@ export default class AutoHide extends React.Component {
     });
   }
 
-   show() {
-     this.setState({
-       hiddenClass: '',
-     });
-   }
+  show() {
+    this.setState({
+      hiddenClass: '',
+    });
+  }
 
    render() {
      return (<div
