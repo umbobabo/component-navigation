@@ -55,7 +55,7 @@ export default class Navigation extends React.Component {
              <div className="navigation__primary-expander"></div>
              <a
                href="http://www.economist.com/search/gcs#gsc.tab=0"
-               target="_blank" className="navigation__link-search"
+               className="navigation__link-search"
              >
                <Icon icon="magnifier" size="34px" {...svgUri}/>
              </a>
