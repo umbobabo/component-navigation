@@ -12,6 +12,7 @@ export default class Navigation extends React.Component {
       children: React.PropTypes.element,
       links: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
       autohide: React.PropTypes.boolean,
+      svgUri: React.PropTypes.string,
     };
   }
 
@@ -43,20 +44,20 @@ export default class Navigation extends React.Component {
           </div>);
       }
     }
-
+    const svgUri = { uri: this.props.svgUri } || {};
     return (
       <StickyPosition className={`${this.props.className} ${autohide}`}>
          <div className="navigation__primary">
            <div className="navigation__primary-inner">
              <a href="http://www.economist.com" className="navigation__link-logo">
-               <Icon icon="economist" size="45px"/>
+               <Icon icon="economist" size="45px" {...svgUri}/>
              </a>
              <div className="navigation__primary-expander"></div>
              <a
                href="http://www.economist.com/search/gcs#gsc.tab=0"
                target="_blank" className="navigation__link-search"
              >
-               <Icon icon="magnifier" size="34px"/>
+               <Icon icon="magnifier" size="34px" {...svgUri}/>
              </a>
            </div>
          </div>

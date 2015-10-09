@@ -78,11 +78,6 @@
         "src": "./README.md"
       },
       {
-        "title": "Example Code",
-        "type": "code",
-        "src": "./example.es6"
-      },
-      {
         "title": "Tests",
         "type": "html",
         "contents": "<div id='mocha' class='test-output'></div>"
