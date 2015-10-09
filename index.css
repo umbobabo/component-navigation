@@ -39,12 +39,12 @@
    width: 100%;
 }
 
-.navigation__secondary{
-  background: var(--color-berlin);
+.navigation__secondary-inner {
   text-align: right;
+  background: var(--color-berlin);
 }
 
-.navigation__secondary-inner {
+.navigation__secondary-inner .list {
   margin: 0;
   padding: 0;
   display: inline-block;
