@@ -10,7 +10,9 @@
   "main": "index.js",
   "files": [
     "*.js",
+    "*.es6",
     "*.css",
+    "*.json",
     "assets/*",
     "!karma.conf.js",
     "!testbundle.js"
