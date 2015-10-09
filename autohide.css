@@ -10,7 +10,6 @@
 
   .navigation__secondary-autohide--hidden {
     transform: translateY( -100% );
-    width: 100%;
   }
 
   .navigation__secondary-autohide--nohide {
