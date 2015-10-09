@@ -23,7 +23,7 @@ export default class Navigation extends React.Component {
   }
 
   render() {
-    let bottomBar = '';
+    let bottomBar = false;
     let autohide = '';
     if (this.props.links) {
       const innerBottomBar = (<List className="navigation__secondary-inner">
