@@ -1,3 +1,4 @@
+require('svg4everybody')();
 import Navigation from './index';
 import React from 'react';
 import CookieMessage from '@economist/component-cookie-message';
