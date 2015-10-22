@@ -1,4 +1,6 @@
-if (typeof document === 'object') { require('svg4everybody')(); }
+if (typeof document === 'object') {
+  require('svg4everybody')();
+}
 
 import Navigation from './index';
 import React from 'react';
