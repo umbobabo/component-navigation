@@ -9,7 +9,10 @@ export default class Navigation extends React.Component {
   static get propTypes() {
     return {
       className: React.PropTypes.string,
-      children: React.PropTypes.element,
+      children: React.PropTypes.oneOfType([
+        React.PropTypes.arrayOf(React.PropTypes.element),
+        React.PropTypes.element,
+      ]),
       links: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
       autohide: React.PropTypes.bool,
       svgUri: React.PropTypes.string,
