@@ -5,7 +5,7 @@ export default class AutoHide extends React.Component {
    static get propTypes() {
      return {
        className: React.PropTypes.string,
-       children: React.PropTypes.element,
+       children: React.PropTypes.arrayOf(React.PropTypes.element).isRequired,
        hiddenClass: React.PropTypes.string,
        throttleTimeout: React.PropTypes.number,
      };
