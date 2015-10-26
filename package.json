@@ -1,6 +1,6 @@
 {
   "name": "@economist/component-navigation",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "A navigation masthead",
   "author": "The Economist (http://economist.com)",
   "license": "LicenseRef-LICENSE",
@@ -100,7 +100,7 @@
   },
   "scripts": {
     "ci": "./build.sh",
-    "build": "cp -R ./node_modules/@economist/component-icon/assets/ ./assets",
+    "build": "npm-assets .",
     "doc": "parallelshell 'npm run doc:html' 'npm run doc:js' 'npm run doc:css'",
     "doc:css": "cssnext --sourcemap example.css bundle.css",
     "doc:css:watch": "npm run doc:css -- --watch",
@@ -112,7 +112,7 @@
     "lint": "eslint $npm_package_config_lint_opts .",
     "pages": "git stash save -u pages-stash && git branch -D gh-pages; git checkout --orphan gh-pages && git add -f $npm_package_config_ghpages_files && git commit -anm'ghpages' && git push origin HEAD:gh-pages -f",
     "prepages": "npm run build && npm run doc",
-    "prepublish": "babel . -d . -x .es6",
+    "prepublish": "npm run build && babel . -d . -x .es6 --ignore node_modules",
     "prepublish:watch": "npm run prepublish -- -w",
     "pretest": "npm run lint",
     "provision": "devpack-configure ./package.json",
@@ -125,7 +125,8 @@
   "dependencies": {
     "@economist/component-icon": "^3.0.1",
     "@economist/component-list": "^1.1.2",
-    "react-sticky-position": "^2.0.0"
+    "react-sticky-position": "^2.0.0",
+    "svg4everybody": "^2.0.0"
   },
   "devDependencies": {
     "@economist/component-devpack": "^3.4.3",
@@ -155,7 +156,8 @@
     "pre-commit": "^1.0.10",
     "react-addons-test-utils": "^0.14.0",
     "react": "^0.14.0-rc||^0.14.0",
-    "watchify": "^3.4.0"
+    "watchify": "^3.4.0",
+    "npm-assets": "^0.1.0"
   },
   "peerDependencies": {
     "react": "^0.14.0-rc||^0.14.0"

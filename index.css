@@ -16,7 +16,8 @@
   width: 1em;
 }
 
-.navigation__link-search use {
+.navigation__link-search use,
+.navigation__link-search svg {
   fill: var(--color-thimphu);
 }
 
