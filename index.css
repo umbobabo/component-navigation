@@ -68,7 +68,7 @@
   font-family: var(--fontfamily-body);
 }
 
-.list__item:not(:last-child):after {
+.navigation__secondary .list__item:not(:last-child):after {
   content: '';
   display: block;
   position: absolute;
