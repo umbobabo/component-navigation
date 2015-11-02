@@ -155,12 +155,12 @@
     "parallelshell": "^2.0.0",
     "pre-commit": "^1.0.10",
     "react-addons-test-utils": "^0.14.0",
-    "react": "^0.14.0-rc||^0.14.0",
+    "react": "^0.14.0",
     "watchify": "^3.4.0",
     "npm-assets": "^0.1.0"
   },
   "peerDependencies": {
-    "react": "^0.14.0-rc||^0.14.0"
+    "react": "^0.14.0"
   },
   "pre-commit": [
     "lint"
