@@ -1,13 +1,29 @@
 @import "@economist/component-icon";
 @import "@economist/component-cookie-message";
+@import "@economist/component-balloon";
+@import "./user-menu";
+@import "@economist/component-google-search";
+
+:root {
+  --navigation__default-height: 64px;
+}
 
 .navigation {
   font-size: 1rem;
+  position: relative;
+  font-family: var(--fontfamily-body);
 }
 
 .navigation__primary {
+  width: 100%;
   background: var(--color-kiev);
   z-index: 2;
+  line-height: 1em;
+  height: 64px;
+}
+
+.navigation__primary-inner {
+  display: flex;
 }
 
 .navigation__link-search {
@@ -16,14 +32,13 @@
   width: 1em;
 }
 
+.navigation__user-menu {
+  line-height: var(--navigation__default-height);
+}
+
 .navigation__link-search use,
 .navigation__link-search svg {
   fill: var(--color-thimphu);
-}
-
-.navigation__primary-inner {
-   display: flex;
-   line-height: 1em;
 }
 
 .navigation__link-search svg,
@@ -31,10 +46,14 @@
    float: left;
 }
 
-.navigation__primary-expander,
-.navigation__link-search,
-.navigation__link-logo {
-   display: table-cell;
+.navigation__search {
+  width: 200px;
+  flex: 0 1 auto;
+}
+
+.navigation .search {
+  display: table;
+  height: var(--navigation__height, var(--navigation__default-height));
 }
 
 .navigation__primary-expander {
@@ -68,7 +87,7 @@
   font-family: var(--fontfamily-body);
 }
 
-.list__item:not(:last-child):after {
+.navigation__secondary .list__item:not(:last-child):after {
   content: '';
   display: block;
   position: absolute;
