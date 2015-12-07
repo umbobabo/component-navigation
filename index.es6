@@ -43,10 +43,20 @@ export default class Navigation extends React.Component {
                 <Icon icon="user" size="28px" />Log in
               </a>
               <div>
-                <Button href="https://www.economist.com/user/login" className="navigation__user-menu-log-in-button">
+                <Button
+                  shadow
+                  href="https://www.economist.com/user/login"
+                  className="navigation__user-menu-log-in-button"
+                >
                   Log in to The Economist
                 </Button>
-                <span className="navigation__user-menu-register">New to The Economist? <a href="https://www.economist.com/user/register">Register now</a></span>
+                <span className="navigation__user-menu-register">
+                  New to The Economist?
+                  <a
+                    className="navigation__user-menu-register-link"
+                    href="https://www.economist.com/user/register"
+                  >Register now</a>
+                </span>
               </div>
             </Balloon>
           </div>

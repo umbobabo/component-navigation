@@ -1,5 +1,4 @@
 @import "@economist/component-icon";
-@import "@economist/component-cookie-message";
 @import "@economist/component-balloon";
 @import "./user-menu";
 @import "@economist/component-google-search";
@@ -12,6 +11,14 @@
   font-size: 1rem;
   position: relative;
   font-family: var(--fontfamily-body);
+}
+
+.navigation a {
+  text-decoration: none;
+}
+
+.navigation a:hover {
+  cursor: pointer;
 }
 
 .navigation__primary {
@@ -63,42 +70,4 @@
 .navigation__secondary-inner {
   text-align: right;
   background: var(--color-berlin);
-}
-
-.navigation__secondary-inner .list {
-  margin: 0;
-  padding: 0;
-  display: inline-block;
-  line-height: 0.5em;
-}
-
-.navigation__secondary .list__item {
-  list-style: none;
-  display: table-cell;
-  position: relative;
-}
-
-.navigation__secondary-link {
-  text-decoration: none;
-  color: var(--color-kiev);
-  padding: var(--grid-spacing-sloth);
-  display: block;
-  font-size: var(--text-size-step--2);
-  font-family: var(--fontfamily-body);
-}
-
-.navigation__secondary .list__item:not(:last-child):after {
-  content: '';
-  display: block;
-  position: absolute;
-  right: 0;
-  top: 50%;
-  background: var(--color-kiev);
-  width: 1px;
-  height: var(--grid-spacing-sloth);
-  margin-top: calc(-var(--grid-spacing-sloth)/2);
-}
-
-.navigation--anonymous .list__item:nth-child(2):after {
-  transform: rotate(20deg);
 }

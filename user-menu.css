@@ -27,7 +27,7 @@
 .balloon-content {
   font-size: 0.8em;
   right: -100px;
-  padding: 2em;
+  padding: 2em 2em 1.5em 2em;
   line-height: initial;
 }
 
@@ -36,15 +36,23 @@
   clear: both;
   display: block;
   text-align: center;
+  font-weight: bold;
 }
 
 .navigation__user-menu-register {
   font-size: var(--text-size-step--2);
   margin-top: 2em;
+  display: block;
+}
+
+.navigation__user-menu-register-link {
+  color: var(--navigation__user-menu-register-link-color, var(--color-honolulu));
+  margin-left: 1em;
+  font-weight: bold;
 }
 
 .navigation__user-menu .balloon-content {
-  width: 320px;
+  min-width: 320px;
   z-index: 2;
 }
 
