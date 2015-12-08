@@ -9,3 +9,7 @@
 body {
   -webkit-font-smoothing: antialiased;
 }
+
+#component-preview {
+  background: white;
+}

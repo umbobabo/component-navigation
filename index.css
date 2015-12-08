@@ -39,10 +39,6 @@
   width: 1em;
 }
 
-.navigation__user-menu {
-  line-height: var(--navigation__default-height);
-}
-
 .navigation__link-search use,
 .navigation__link-search svg {
   fill: var(--color-thimphu);

@@ -3,11 +3,16 @@
 .navigation__user-menu {
   font-size: var(--navigation__user-menu-link__font-size, var(--text-size-step--1));
   font-family: inherit;
+  display: flex;
+  align-items: center;
 }
 
 .navigation__user-menu-link {
   color: var(--color-thimphu);
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  font-size: var(--search__search-label__font-size, var(--text-size-step--1));
 }
 
 .balloon__link {
@@ -17,11 +22,6 @@
 .navigation__user-menu .Icon,
 .navigation__user-menu .Icon use {
   fill: var(--color-thimphu);
-}
-
-.balloon {
-  right: 0px;
-  text-decoration: none;
 }
 
 .balloon-content {
@@ -57,7 +57,7 @@
 }
 
 /* Remove before PR */
-.balloon--not-visible .balloon__link:after,
+/*.balloon--not-visible .balloon__link:after,
 .balloon--not-visible .balloon-content {
   display: block;
 }
@@ -65,4 +65,4 @@
 .balloon--visible .balloon__link:after,
 .balloon--visible .balloon-content {
   display: block;
-}
+}*/
