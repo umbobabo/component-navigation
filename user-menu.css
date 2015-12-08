@@ -1,0 +1,68 @@
+@import "@economist/component-link-button";
+
+.navigation__user-menu {
+  font-size: var(--navigation__user-menu-link__font-size, var(--text-size-step--1));
+  font-family: inherit;
+}
+
+.navigation__user-menu-link {
+  color: var(--color-thimphu);
+  text-decoration: none;
+}
+
+.balloon__link {
+  white-space: nowrap;
+}
+
+.navigation__user-menu .Icon,
+.navigation__user-menu .Icon use {
+  fill: var(--color-thimphu);
+}
+
+.balloon {
+  right: 0px;
+  text-decoration: none;
+}
+
+.balloon-content {
+  font-size: 0.8em;
+  right: -100px;
+  padding: 2em 2em 1.5em 2em;
+  line-height: initial;
+}
+
+.navigation__user-menu-log-in-button {
+  margin: auto;
+  clear: both;
+  display: block;
+  text-align: center;
+  font-weight: bold;
+}
+
+.navigation__user-menu-register {
+  font-size: var(--text-size-step--2);
+  margin-top: 2em;
+  display: block;
+}
+
+.navigation__user-menu-register-link {
+  color: var(--navigation__user-menu-register-link-color, var(--color-honolulu));
+  margin-left: 1em;
+  font-weight: bold;
+}
+
+.navigation__user-menu .balloon-content {
+  min-width: 320px;
+  z-index: 2;
+}
+
+/* Remove before PR */
+.balloon--not-visible .balloon__link:after,
+.balloon--not-visible .balloon-content {
+  display: block;
+}
+
+.balloon--visible .balloon__link:after,
+.balloon--visible .balloon-content {
+  display: block;
+}
