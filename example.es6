@@ -10,15 +10,10 @@ export default (
    <div>
      <Navigation className="navigation navigation--registered navigation--sticked"
        svgUri="assets/icons.svg"
+       autohide={false}
      >
-      <SubscribeMessage/>
+      <SubscribeMessage counter="1/3"/>
      </Navigation>
-     <p>To see the different variation of the navigation please click one of links below:</p>
-     <ul>
-       <li><a href="?user=anonymous">Anonymous</a></li>
-       <li><a href="?user=registered">Registered</a></li>
-       <li><a href="?user=subscriber">Subscriber</a></li>
-     </ul>
      <p>Stretch the page to test the sticky functionality applied to the navigation</p>
      <p>Stretch the page to test the sticky functionality applied to the navigation</p>
      <p>Stretch the page to test the sticky functionality applied to the navigation</p>

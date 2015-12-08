@@ -1,0 +1,36 @@
+:root {
+  --navigation__search-default-width: 100px;
+  --navigation__search-default-width-mobile: 50px;
+}
+
+.navigation__primary-inner {
+  display: flex;
+  padding-right: var(--navigation__search-width, var(--navigation__search-default-width));
+}
+
+.navigation__link-search {
+  padding: 5px var(--grid-gutter-s);
+  vertical-align: middle;
+  width: 1em;
+}
+
+.navigation__link-search use,
+.navigation__link-search svg {
+  fill: var(--color-thimphu);
+}
+
+.navigation__search {
+  flex: 0 1 auto;
+}
+
+@media (width<=767px){
+  .navigation__primary-inner {
+    padding-right: var(--navigation__search-width-mobile, var(--navigation__search-default-width-mobile));
+  }
+}
+
+.navigation .search {
+  display: table;
+  height: var(--navigation__height, var(--navigation__default-height));
+  right: 10px;
+}

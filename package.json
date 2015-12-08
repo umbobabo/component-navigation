@@ -48,6 +48,9 @@
     ],
     "js": [
       {
+        "src": "./node_modules/svg4everybody/dist/svg4everybody.min.js"
+      },
+      {
         "src": "./node_modules/mocha/mocha.js"
       },
       {
@@ -71,6 +74,12 @@
       },
       {
         "contents": "if(document.getElementById('mocha')){mocha.checkLeaks();mocha.run();}"
+      },
+      {
+        "contents": "svg4everybody();"
+      },
+      {
+        "contents": "</script><!-- lol html injection -->    <script type=\"text/javascript\"> (function() { var path = '//easy.myfonts.net/v2/js?sid=207020(font-family=FF+Milo+Serif+Pro)&sid=207025(font-family=FF+Milo+Serif+Pro+Med+Italic)&sid=207029(font-family=FF+Milo+Serif+Pro+Bold)&key=ADKczqjSur', protocol = ('https:' == document.location.protocol ? 'https:' : 'http:'), trial = document.createElement('script'); trial.type = 'text/javascript'; trial.async = true; trial.src = protocol + path; var head = document.getElementsByTagName(\"head\")[0]; head.appendChild(trial); })(); </script> <script type=\"text/javascript\"> (function() { var path = '//easy.myfonts.net/v2/js?sid=274518(font-family=Halifax+Regular)&sid=274519(font-family=Halifax+Light)&sid=274524(font-family=Halifax+Bold)&key=LUwLgIpMrH', protocol = ('https:' == document.location.protocol ? 'https:' : 'http:'), trial = document.createElement('script'); trial.type = 'text/javascript'; trial.async = true; trial.src = protocol + path; var head = document.getElementsByTagName(\"head\")[0]; head.appendChild(trial); })(); </script>     <script>/* end my html injection */"
       }
     ],
     "sections": [
@@ -117,7 +126,7 @@
     "lint": "eslint $npm_package_config_lint_opts .",
     "pages": "git stash save -u pages-stash && git branch -D gh-pages; git checkout --orphan gh-pages && git add -f $npm_package_config_ghpages_files && git commit -anm'ghpages' && git push origin HEAD:gh-pages -f",
     "prepages": "npm run build && npm run doc",
-    "prepublish": "npm run build && babel . -d . -x .es6 --ignore node_modules",
+    "prepublish": "babel . -d . -x .es6 --ignore node_modules",
     "prepublish:watch": "npm run prepublish -- -w",
     "pretest": "npm run lint",
     "provision": "devpack-configure ./package.json",
@@ -131,7 +140,6 @@
     "@economist/component-balloon": "^1.0.0",
     "@economist/component-icon": "^3.0.1",
     "@economist/component-link-button": "^1.1.0",
-    "@economist/component-list": "^1.1.2",
     "@economist/component-subscribe-message": "^1.0.4",
     "react-sticky-position": "^2.0.0",
     "svg4everybody": "^2.0.0"
@@ -166,6 +174,7 @@
     "pre-commit": "^1.0.10",
     "react": "^0.14.0",
     "react-addons-test-utils": "^0.14.0",
+    "svg4everybody": "^2.0.1",
     "watchify": "^3.4.0"
   },
   "peerDependencies": {

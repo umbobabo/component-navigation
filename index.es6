@@ -1,6 +1,5 @@
 import React from 'react';
 import Icon from '@economist/component-icon';
-import List from '@economist/component-list';
 import StickyPosition from 'react-sticky-position';
 import AutoHide from './autohide';
 import Button from '@economist/component-link-button';
@@ -40,7 +39,8 @@ export default class Navigation extends React.Component {
           <div className="navigation__user-menu">
             <Balloon>
               <a href="https://www.economist.com/user/login" className="navigation__user-menu-link">
-                <Icon icon="user" size="28px" />Log in
+                <Icon icon="user" size="28px" />
+                <span className="navigation__user-menu-label">Log in</span>
               </a>
               <div>
                 <Button
@@ -68,35 +68,18 @@ export default class Navigation extends React.Component {
     );
     const children = [ primaryNavigation ];
     let autohide = '';
-    if (this.props.links) {
-      const innerBottomBar = (<div className="navigation__secondary-inner">
-        <List>
-         {this.props.links.map((contextItem) => {
-           return (<a
-             {...contextItem}
-             className="navigation__secondary-link"
-             key={`${contextItem.title}-${contextItem.href}`}
-                   >
-               {contextItem.title}
-            </a>);
-         })}
-         </List>
-       </div>);
-      let bottomBar = '';
-      if (this.props.autohide) {
-        autohide = ' navigation--autohide';
-        bottomBar = (<AutoHide className="navigation__secondary" key="secondary-autohide">
-            {innerBottomBar}
-            {this.props.children}
-          </AutoHide>);
-      } else {
-        bottomBar = (<div className="navigation__secondary" key="secondary">
-            {innerBottomBar}
-            {this.props.children}
-          </div>);
-      }
-      children.push(bottomBar);
+    let bottomBar = '';
+    if (this.props.autohide) {
+      autohide = ' navigation--autohide';
+      bottomBar = (<AutoHide className="navigation__secondary" key="secondary-autohide">
+          {this.props.children}
+        </AutoHide>);
+    } else {
+      bottomBar = (<div className="navigation__secondary" key="secondary">
+          {this.props.children}
+        </div>);
     }
+    children.push(bottomBar);
     return (
       <StickyPosition className={`${this.props.className} ${autohide}`}>
          {children}

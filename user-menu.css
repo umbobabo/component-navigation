@@ -5,6 +5,8 @@
   font-family: inherit;
   display: flex;
   align-items: center;
+  min-width: 28px;
+  margin: 0 20px;
 }
 
 .navigation__user-menu-link {
@@ -56,6 +58,17 @@
   z-index: 2;
 }
 
+@media (width<=767px){
+  .navigation__user-menu-label {
+    display: none;
+  }
+}
+
+@media (width<=1000px) {
+  .navigation__user-menu .balloon-content {
+    right: -40px !important;
+  }
+}
 /* Remove before PR */
 /*.balloon--not-visible .balloon__link:after,
 .balloon--not-visible .balloon-content {

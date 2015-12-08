@@ -1,7 +1,10 @@
 @import "@economist/component-icon";
 @import "@economist/component-balloon";
 @import "./user-menu";
+@import "./search";
 @import "@economist/component-google-search";
+@import "@economist/component-subscribe-message";
+@import "@economist/component-typography";
 
 :root {
   --navigation__default-height: 64px;
@@ -33,30 +36,9 @@
   display: flex;
 }
 
-.navigation__link-search {
-  padding: 5px var(--grid-gutter-s);
-  vertical-align: middle;
-  width: 1em;
-}
-
-.navigation__link-search use,
-.navigation__link-search svg {
-  fill: var(--color-thimphu);
-}
-
 .navigation__link-search svg,
 .navigation__link-logo svg {
    float: left;
-}
-
-.navigation__search {
-  width: 200px;
-  flex: 0 1 auto;
-}
-
-.navigation .search {
-  display: table;
-  height: var(--navigation__height, var(--navigation__default-height));
 }
 
 .navigation__primary-expander {
