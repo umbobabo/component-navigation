@@ -34,3 +34,7 @@
   height: var(--navigation__height, var(--navigation__default-height));
   right: 10px;
 }
+
+.navigation .search .Icon-magnifier {
+  vertical-align: middle;
+}

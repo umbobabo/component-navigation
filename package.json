@@ -138,7 +138,7 @@
   },
   "dependencies": {
     "@economist/component-balloon": "^1.0.0",
-    "@economist/component-icon": "^3.0.1",
+    "@economist/component-icon": "^4.0.0",
     "@economist/component-link-button": "^1.1.0",
     "@economist/component-subscribe-message": "^1.0.4",
     "react-sticky-position": "^2.0.0",
