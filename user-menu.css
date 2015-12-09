@@ -1,7 +1,8 @@
 @import "@economist/component-link-button";
+@import "settings";
 
 .navigation__user-menu {
-  font-size: var(--navigation__user-menu-link__font-size, var(--text-size-step--1));
+  font-size: var(--navigation__user-menu-link__font-size, var(--navigation-text-size));
   font-family: inherit;
   display: flex;
   align-items: center;
@@ -14,7 +15,7 @@
   text-decoration: none;
   display: flex;
   align-items: center;
-  font-size: var(--search__search-label__font-size, var(--text-size-step--1));
+  font-size: var(--search__search-label__font-size, var(--navigation-text-size));
 }
 
 .balloon__link {
@@ -56,12 +57,6 @@
 .navigation__user-menu .balloon-content {
   min-width: 320px;
   z-index: 2;
-}
-
-@media (width<=767px){
-  .navigation__user-menu-label {
-    display: none;
-  }
 }
 
 @media (width<=1000px) {

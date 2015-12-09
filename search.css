@@ -1,7 +1,12 @@
+@import "settings";
+@import "@economist/component-google-search";
+
 :root {
   --navigation__search-default-width: 100px;
   --navigation__search-default-width-mobile: 50px;
+  --search__search-label__font-size: var(--navigation-text-size);
 }
+
 
 .navigation__primary-inner {
   display: flex;
@@ -33,8 +38,4 @@
   display: table;
   height: var(--navigation__height, var(--navigation__default-height));
   right: 10px;
-}
-
-.navigation .search .Icon-magnifier {
-  vertical-align: middle;
 }
