@@ -10,7 +10,6 @@
 
 .navigation__primary-inner {
   display: flex;
-  padding-right: var(--navigation__search-width, var(--navigation__search-default-width));
 }
 
 .navigation__link-search {
@@ -26,12 +25,7 @@
 
 .navigation__search {
   flex: 0 1 auto;
-}
-
-@media (width<=767px){
-  .navigation__primary-inner {
-    padding-right: var(--navigation__search-width-mobile, var(--navigation__search-default-width-mobile));
-  }
+  margin: 0 var(--navigation__default-menus-padding);
 }
 
 .navigation .search {

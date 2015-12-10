@@ -6,8 +6,7 @@
   font-family: inherit;
   display: flex;
   align-items: center;
-  min-width: 28px;
-  margin: 0 20px;
+  margin: 0 var(--navigation__default-menus-padding);
 }
 
 .navigation__user-menu-link {
