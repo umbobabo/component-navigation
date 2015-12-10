@@ -1,4 +1,7 @@
+@import "@economist/component-typography";
+
 :root {
   --navigation-text-size: var(--text-size-step--1);
   --navigation__default-menus-padding: 1rem;
+  --navigation-link-color: var(--color-thimphu);
 }

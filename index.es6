@@ -5,6 +5,8 @@ import AutoHide from './autohide';
 import Button from '@economist/component-link-button';
 import GoogleSearch from '@economist/component-google-search';
 import Balloon from '@economist/component-balloon';
+import SectionsCard from '@economist/component-sections-card';
+import context from '@economist/component-sections-card/context';
 
 export default class Navigation extends React.Component {
 
@@ -35,13 +37,28 @@ export default class Navigation extends React.Component {
           <a href="http://www.economist.com" className="navigation__link-logo">
             <Icon icon="economist" size="64px" {...svgUri}/>
           </a>
+          <Balloon className="navigation__main-navigation-link">
+            <a href="/Sections" className="navigation__sections-link" unstyled>
+              Sections<Icon icon="down" size="28px" color="white" />
+            </a>
+            <div>
+              <SectionsCard data={context} />
+            </div>
+          </Balloon>
+          <a href="/there" className="navigation__main-navigation-link">
+            Print edition
+          </a>
+          <a href="/there" className="navigation__main-navigation-link">
+            Products
+          </a>
           <div className="navigation__primary-expander"></div>
           <div className="navigation__user-menu">
             <Balloon>
-              <a href="https://www.economist.com/user/login" className="navigation__user-menu-link">
-                <Icon icon="user" size="28px" />
-                <span className="navigation__user-menu-label">Log in</span>
-              </a>
+              <Button href="https://www.economist.com/user/login"
+                className="navigation__user-menu-link"
+                icon={{ icon: 'user', size: '28px' }}
+                unstyled
+              >Log in</Button>
               <div>
                 <Button
                   shadow

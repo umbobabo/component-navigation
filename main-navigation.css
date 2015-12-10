@@ -1,0 +1,32 @@
+@import '@economist/component-sections-card';
+@import 'settings';
+
+:root {
+  --icon-height: 28px;
+  --main-navigation-link-padding: 2em;
+}
+
+.navigation__main-navigation-link.balloon {
+  position: initial;
+}
+
+.navigation__main-navigation-link {
+   align-self: center;
+   font-size: var(--navigation-text-size);
+   padding: 0 var(--main-navigation-link-padding);
+ }
+
+.navigation__main-navigation-link,
+.navigation__main-navigation-link > a {
+  color: var(--navigation-link-color);
+  white-space: nowrap;
+}
+
+.navigation__sections-link {
+  position: relative;
+}
+
+.navigation__sections-link .Icon {
+  position: absolute;
+  margin-top: -6px;
+}

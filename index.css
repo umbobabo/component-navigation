@@ -2,6 +2,7 @@
 @import "@economist/component-balloon";
 @import "./user-menu";
 @import "./search";
+@import "./main-navigation";
 @import "@economist/component-subscribe-message";
 @import "@economist/component-typography";
 
