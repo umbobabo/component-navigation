@@ -7,6 +7,8 @@ import GoogleSearch from '@economist/component-google-search';
 import Balloon from '@economist/component-balloon';
 import SectionsCard from '@economist/component-sections-card';
 import context from '@economist/component-sections-card/context';
+import Accordion from '@economist/component-accordion';
+import accordionContext from '@economist/component-accordion/context.js';
 
 export default class Navigation extends React.Component {
 
@@ -37,7 +39,15 @@ export default class Navigation extends React.Component {
           <a href="http://www.economist.com" className="navigation__link-logo">
             <Icon icon="economist" size="64px" {...svgUri}/>
           </a>
-          <Balloon className="navigation__main-navigation-link">
+          <Balloon
+            className="navigation__main-navigation-link navigation__mobile-accordion"
+          >
+            <a href="/Sections" className="navigation__sections-link" unstyled>
+              <Icon icon="hamburger" size="28px" color="white" />
+            </a>
+            <Accordion list={accordionContext}/>
+          </Balloon>
+          <Balloon className="navigation__main-navigation-link navigation__main-sections-card">
             <a href="/Sections" className="navigation__sections-link" unstyled>
               Sections<Icon icon="down" size="28px" color="white" />
             </a>
@@ -54,7 +64,8 @@ export default class Navigation extends React.Component {
           <div className="navigation__primary-expander"></div>
           <div className="navigation__user-menu">
             <Balloon>
-              <Button href="https://www.economist.com/user/login"
+              <Button
+                href="https://www.economist.com/user/login"
                 className="navigation__user-menu-link"
                 icon={{ icon: 'user', size: '28px' }}
                 unstyled

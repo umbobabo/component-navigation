@@ -5,8 +5,12 @@
   font-size: var(--navigation__user-menu-link__font-size, var(--navigation-text-size));
   font-family: inherit;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   margin: 0 var(--navigation__default-menus-padding);
+}
+
+.navigation__user-menu .link-button__group {
+  margin-bottom: 5px;
 }
 
 .navigation__user-menu-link {
@@ -17,7 +21,7 @@
   font-size: var(--search__search-label__font-size, var(--navigation-text-size));
 }
 
-.balloon__link {
+.navigation__user-menu .balloon__link {
   white-space: nowrap;
 }
 
@@ -26,11 +30,12 @@
   fill: var(--color-thimphu);
 }
 
-.balloon-content {
+.navigation__user-menu .balloon-content {
   font-size: 0.8em;
   right: -100px;
   padding: 2em 2em 1.5em 2em;
   line-height: initial;
+  text-align: center;
 }
 
 .navigation__user-menu-log-in-button {
@@ -53,6 +58,10 @@
   font-weight: bold;
 }
 
+.navigation__user-menu .balloon {
+  display: flex;
+}
+
 .navigation__user-menu .balloon-content {
   min-width: 320px;
   z-index: 2;
@@ -62,6 +71,11 @@
   .navigation__user-menu .balloon-content {
     right: -40px !important;
   }
+}
+
+.navigation__user-menu .Icon {
+  width: var(--navigation-icon-size);
+  margin-right: 5px;
 }
 /* Remove before PR */
 /*.balloon--not-visible .balloon__link:after,

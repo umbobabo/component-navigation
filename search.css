@@ -26,10 +26,24 @@
 .navigation__search {
   flex: 0 1 auto;
   margin: 0 var(--navigation__default-menus-padding);
+  padding: 0;
 }
 
 .navigation .search {
   display: table;
   height: var(--navigation__height, var(--navigation__default-height));
   right: 10px;
+}
+
+.navigation .search .Icon {
+  width: var(--navigation-icon-size);
+}
+
+.navigation .search .Icon-magnifier {
+  margin-right: 4px;
+}
+
+
+.navigation .search__search-label {
+  padding-top: 4px;
 }

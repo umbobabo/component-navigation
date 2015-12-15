@@ -15,3 +15,7 @@ body {
 #component-preview {
   background: white;
 }
+
+.component-panel {
+  overflow: hidden;
+}

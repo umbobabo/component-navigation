@@ -1,23 +1,25 @@
 @import "@economist/component-icon";
 @import "@economist/component-balloon";
+@import "./settings";
 @import "./user-menu";
 @import "./search";
+@import "./mobile-menu";
 @import "./main-navigation";
 @import "@economist/component-subscribe-message";
 @import "@economist/component-typography";
 
-:root {
-  --navigation__default-height: 64px;
-}
 
 .navigation {
   font-size: 1rem;
-  position: relative;
   font-family: var(--fontfamily-body);
 }
 
-.navigation a {
+.navigation a.navigation__main-navigation-link,
+.navigation .navigation__main-navigation-link > a {
   text-decoration: none;
+  height: var(--navigation__default-height);
+  padding-top: var(--navigation__link-top-padding);
+  box-sizing: border-box;
 }
 
 .navigation a:hover {
@@ -29,11 +31,12 @@
   background: var(--color-kiev);
   z-index: 2;
   line-height: 1em;
-  height: 64px;
+  height: var(--navigation__default-height);
 }
 
 .navigation__primary-inner {
   display: flex;
+  position: relative;
 }
 
 .navigation__link-search svg,
