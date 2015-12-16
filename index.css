@@ -52,3 +52,7 @@
   text-align: right;
   background: var(--color-berlin);
 }
+
+.navigation__primary-inner .balloon {
+  position: static;
+}
