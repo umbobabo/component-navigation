@@ -1,8 +1,14 @@
 import React from 'react';
 import Icon from '@economist/component-icon';
-import List from '@economist/component-list';
 import StickyPosition from 'react-sticky-position';
 import AutoHide from './autohide';
+import Button from '@economist/component-link-button';
+import GoogleSearch from '@economist/component-google-search';
+import Balloon from '@economist/component-balloon';
+import SectionsCard from '@economist/component-sections-card';
+import context from '@economist/component-sections-card/context';
+import Accordion from '@economist/component-accordion';
+import accordionContext from '@economist/component-accordion/context.js';
 
 export default class Navigation extends React.Component {
 
@@ -13,7 +19,7 @@ export default class Navigation extends React.Component {
         React.PropTypes.arrayOf(React.PropTypes.element),
         React.PropTypes.element,
       ]),
-      links: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
+      links: React.PropTypes.arrayOf(React.PropTypes.object),
       autohide: React.PropTypes.bool,
       svgUri: React.PropTypes.string,
     };
@@ -31,45 +37,77 @@ export default class Navigation extends React.Component {
       <div className="navigation__primary" key="primary-navigation">
         <div className="navigation__primary-inner">
           <a href="http://www.economist.com" className="navigation__link-logo">
-            <Icon icon="economist" size="45px" {...svgUri}/>
+            <Icon icon="economist" size="64px" {...svgUri}/>
+          </a>
+          <Balloon
+            className="navigation__main-navigation-link navigation__mobile-accordion"
+          >
+            <a href="/Sections" className="navigation__sections-link" unstyled>
+              <Icon icon="hamburger" size="28px" color="white" />
+            </a>
+            <Accordion list={accordionContext}/>
+          </Balloon>
+          <Balloon className="navigation__main-navigation-link navigation__main-sections-card">
+            <a href="/Sections" className="navigation__sections-link" unstyled>
+              Sections<Icon icon="down" size="28px" color="white" />
+            </a>
+            <div>
+              <SectionsCard data={context} />
+            </div>
+          </Balloon>
+          <a href="/there" className="navigation__main-navigation-link">
+            Print edition
+          </a>
+          <a href="/there" className="navigation__main-navigation-link">
+            Products
           </a>
           <div className="navigation__primary-expander"></div>
-          <a
-            href="http://www.economist.com/search/gcs#gsc.tab=0"
-            className="navigation__link-search"
-          >
-            <Icon icon="magnifier" size="34px" {...svgUri}/>
-          </a>
+          <div className="navigation__user-menu">
+            <Balloon>
+              <Button
+                href="https://www.economist.com/user/login"
+                className="navigation__user-menu-link"
+                icon={{ icon: 'user', size: '28px' }}
+                unstyled
+              >Log in</Button>
+              <div>
+                <Button
+                  shadow
+                  href="https://www.economist.com/user/login"
+                  className="navigation__user-menu-log-in-button"
+                >
+                  Log in to The Economist
+                </Button>
+                <span className="navigation__user-menu-register">
+                  New to The Economist?
+                  <a
+                    className="navigation__user-menu-register-link"
+                    href="https://www.economist.com/user/register"
+                  >Register now</a>
+                </span>
+              </div>
+            </Balloon>
+          </div>
+          <div className="navigation__search">
+            <GoogleSearch/>
+          </div>
         </div>
       </div>
     );
     const children = [ primaryNavigation ];
     let autohide = '';
-    if (this.props.links) {
-      const innerBottomBar = (<div className="navigation__secondary-inner">
-        <List>
-         {this.props.links.map((contextItem) => {
-           return (<a {...contextItem} className="navigation__secondary-link" key={`${contextItem.title}-${contextItem.href}`}>
-               {contextItem.title}
-            </a>);
-         })}
-         </List>
-       </div>);
-      let bottomBar = '';
-      if (this.props.autohide) {
-        autohide = ' navigation--autohide';
-        bottomBar = (<AutoHide className="navigation__secondary" key="secondary-autohide">
-            {innerBottomBar}
-            {this.props.children}
-          </AutoHide>);
-      } else {
-        bottomBar = (<div className="navigation__secondary" key="secondary">
-            {innerBottomBar}
-            {this.props.children}
-          </div>);
-      }
-      children.push(bottomBar);
+    let bottomBar = '';
+    if (this.props.autohide) {
+      autohide = ' navigation--autohide';
+      bottomBar = (<AutoHide className="navigation__secondary" key="secondary-autohide">
+          {this.props.children}
+        </AutoHide>);
+    } else {
+      bottomBar = (<div className="navigation__secondary" key="secondary">
+          {this.props.children}
+        </div>);
     }
+    children.push(bottomBar);
     return (
       <StickyPosition className={`${this.props.className} ${autohide}`}>
          {children}

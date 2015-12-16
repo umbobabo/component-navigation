@@ -1,0 +1,31 @@
+@import "./settings";
+@import "@economist/component-accordion";
+@import "@economist/component-accordion/styles.css";
+
+.navigation__main-navigation-link.navigation__mobile-accordion {
+  display: none !important;
+}
+
+@media (--mobile-down) {
+  .navigation__mobile-accordion.navigation__main-navigation-link {
+    display: flex !important;
+  }
+}
+
+.navigation__mobile-accordion.accordionExpander--not-visible .balloon-content {
+  display: none;
+}
+
+.navigation__mobile-accordion  .balloon-content {
+  left: 0 !important;
+  top: 100%;
+}
+
+.navigation__mobile-accordion .navigation__sections-link {
+  display: flex;
+  align-items: center;
+}
+
+.navigation__mobile-accordion .balloon-content {
+  padding: 0;
+}
