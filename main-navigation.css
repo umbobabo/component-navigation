@@ -7,7 +7,7 @@
 }
 
 .navigation__main-navigation-link.balloon {
-  position: initial;
+  position: static;
 }
 
 .navigation__main-navigation-link {
@@ -51,4 +51,22 @@
 .navigation__sections-link {
    display: flex;
    align-items: center;
+ }
+
+ .navigation__link-logo {
+   min-width: 128px;
+ }
+
+ /* IE9 Flexbox fallback */
+ .navigation__primary {
+   display: table;
+ }
+
+ .navigation__primary-inner {
+   display: table-row;
+ }
+
+ .navigation__primary-inner > * {
+   display: table-cell;
+   vertical-align: middle;
  }

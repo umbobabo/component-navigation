@@ -6,7 +6,7 @@
   font-family: inherit;
   display: flex;
   align-items: stretch;
-  margin: 0 var(--navigation__default-menus-padding);
+  padding: 0 var(--navigation__default-menus-padding, var(--main-navigation-link-padding));
 }
 
 .navigation__user-menu .link-button__group {
@@ -23,6 +23,7 @@
 
 .navigation__user-menu .balloon__link {
   white-space: nowrap;
+  height: var(--navigation__default-height);
 }
 
 .navigation__user-menu .Icon,
