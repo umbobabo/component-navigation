@@ -29,3 +29,8 @@
 .navigation__mobile-accordion .balloon-content {
   padding: 0;
 }
+
+.navigation__mobile-accordion .Icon {
+  width: var(--navigation-icon-size);
+  margin-right: 5px;
+}

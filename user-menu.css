@@ -78,13 +78,3 @@
   width: var(--navigation-icon-size);
   margin-right: 5px;
 }
-/* Remove before PR */
-/*.balloon--not-visible .balloon__link:after,
-.balloon--not-visible .balloon-content {
-  display: block;
-}
-
-.balloon--visible .balloon__link:after,
-.balloon--visible .balloon-content {
-  display: block;
-}*/

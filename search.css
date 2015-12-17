@@ -46,3 +46,13 @@
 .navigation .search__search-label {
   padding-top: 4px;
 }
+
+@media (--mobile-down){
+  .navigation__search  {
+    padding: 0;
+  }
+  .search__magnifier {
+    height: var(--navigation__height, var(--navigation__default-height));
+    width: var(--navigation__height, var(--navigation__default-height));
+  }
+}
