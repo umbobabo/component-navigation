@@ -25,8 +25,7 @@
 
 .navigation__search {
   flex: 0 1 auto;
-  margin: 0 var(--navigation__default-menus-padding);
-  padding: 0;
+  padding: 0 var(--navigation__default-menus-padding, var(--main-navigation-link-padding));
 }
 
 .navigation .search {
@@ -46,4 +45,14 @@
 
 .navigation .search__search-label {
   padding-top: 4px;
+}
+
+@media (--mobile-down){
+  .navigation__search  {
+    padding: 0;
+  }
+  .search__magnifier {
+    height: var(--navigation__height, var(--navigation__default-height));
+    width: var(--navigation__height, var(--navigation__default-height));
+  }
 }

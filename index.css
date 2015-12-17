@@ -37,15 +37,19 @@
 .navigation__primary-inner {
   display: flex;
   position: relative;
+  height: var(--navigation__default-height);
 }
 
-.navigation__link-search svg,
-.navigation__link-logo svg {
-   float: left;
+.navigation__primary-inner > * {
+  /* Required by IE */
+  flex: 1 0 auto;
+  /* Required by older version of Safari */
+  display: -webkit-box;
 }
 
 .navigation__primary-expander {
    width: 100%;
+   flex: 0 1 auto;
 }
 
 .navigation__secondary-inner {
@@ -53,6 +57,10 @@
   background: var(--color-berlin);
 }
 
-.navigation__primary-inner .balloon {
+.navigation__main-sections-card .balloon {
   position: static;
+}
+
+.navigation__link-logo {
+  height: var(--navigation__default-height);
 }

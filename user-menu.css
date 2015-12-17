@@ -6,7 +6,7 @@
   font-family: inherit;
   display: flex;
   align-items: stretch;
-  margin: 0 var(--navigation__default-menus-padding);
+  padding: 0 var(--navigation__default-menus-padding, var(--main-navigation-link-padding));
 }
 
 .navigation__user-menu .link-button__group {
@@ -23,6 +23,7 @@
 
 .navigation__user-menu .balloon__link {
   white-space: nowrap;
+  height: var(--navigation__default-height);
 }
 
 .navigation__user-menu .Icon,
@@ -77,13 +78,3 @@
   width: var(--navigation-icon-size);
   margin-right: 5px;
 }
-/* Remove before PR */
-/*.balloon--not-visible .balloon__link:after,
-.balloon--not-visible .balloon-content {
-  display: block;
-}
-
-.balloon--visible .balloon__link:after,
-.balloon--visible .balloon-content {
-  display: block;
-}*/
