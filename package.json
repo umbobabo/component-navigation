@@ -137,10 +137,12 @@
     "watch": "parallelshell 'npm run doc:watch' 'npm run prepublish:watch' 'npm run serve'"
   },
   "dependencies": {
+    "@economist/component-accordion": "^1.0.1",
     "@economist/component-balloon": "^1.0.0",
     "@economist/component-google-search": "^1.0.1",
     "@economist/component-icon": "^4.0.0",
     "@economist/component-link-button": "^1.1.0",
+    "@economist/component-sections-card": "^1.0.2",
     "@economist/component-subscribe-message": "^1.0.4",
     "react-sticky-position": "^2.0.0",
     "svg4everybody": "^2.0.0"
@@ -175,11 +177,13 @@
     "pre-commit": "^1.0.10",
     "react": "^0.14.0",
     "react-addons-test-utils": "^0.14.0",
+    "react-dom": "^0.14.3",
     "svg4everybody": "^2.0.1",
     "watchify": "^3.4.0"
   },
   "peerDependencies": {
-    "react": "^0.14.0"
+    "react": "^0.14.0",
+    "react-dom": "^0.14.3"
   },
   "pre-commit": [
     "lint"

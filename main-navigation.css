@@ -53,10 +53,6 @@
    align-items: center;
  }
 
- .navigation__link-logo {
-   min-width: 128px;
- }
-
  /* IE9 Flexbox fallback */
  .navigation__primary {
    display: table;
