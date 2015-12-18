@@ -61,6 +61,27 @@
   position: static;
 }
 
+@media (--mobile-up) {
+  .navigation__link-logo {
+    min-width: 128px;
+  }
+}
+
 .navigation__link-logo {
   height: var(--navigation__default-height);
+}
+
+.navigation__link-empty-logo {
+  display: none;
+  width: 1em;
+  background: var(--color-economist);
+}
+
+@media (--mobile-down) {
+  .navigation__link-logo .Icon-economist {
+    display: none;
+  }
+  .navigation__link-empty-logo {
+    display: block;
+  }
 }
