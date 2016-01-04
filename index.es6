@@ -62,14 +62,14 @@ export default class Navigation extends React.Component {
           <Balloon
             className="navigation__main-navigation-link navigation__mobile-accordion"
           >
-            <a href="/Sections" className="navigation__sections-link" unstyled>
+            <a href="/Sections" className="navigation__sections-link">
               <Icon icon="hamburger" size="28px" color="white" />
               <Icon icon="close" size="28px" color="white" />
             </a>
             <Accordion list={accordionContext}/>
           </Balloon>
           <Balloon className="navigation__main-navigation-link navigation__main-sections-card">
-            <a href="/Sections" className="navigation__sections-link" unstyled>
+            <a href="/Sections" className="navigation__sections-link">
               Sections<Icon icon="down" size="28px" color="white" />
             </a>
             <div>
