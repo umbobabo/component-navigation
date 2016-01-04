@@ -8,8 +8,27 @@ import Balloon from '@economist/component-balloon';
 import SectionsCard from '@economist/component-sections-card';
 import context from '@economist/component-sections-card/context';
 import Accordion from '@economist/component-accordion';
-import accordionContext from '@economist/component-accordion/context.js';
-
+const accordionContext = [
+  {
+    title: 'Sections',
+    href: 'http://www.economist.com/sections',
+    children: context.sections,
+  },
+  {
+    title: 'Blogs',
+    href: 'http://www.economist.com/blogs',
+    children: context.blogs,
+  },
+  ...context.media,
+  {
+    title: 'Print Edition',
+    href: 'http://www.economist.com/printedition/',
+  },
+  {
+    title: 'Products',
+    href: 'http://www.economist.com/digital',
+  },
+];
 export default class Navigation extends React.Component {
 
   static get propTypes() {
@@ -43,13 +62,14 @@ export default class Navigation extends React.Component {
           <Balloon
             className="navigation__main-navigation-link navigation__mobile-accordion"
           >
-            <a href="/Sections" className="navigation__sections-link" unstyled>
+            <a href="/Sections" className="navigation__sections-link">
               <Icon icon="hamburger" size="28px" color="white" />
+              <Icon icon="close" size="28px" color="white" />
             </a>
             <Accordion list={accordionContext}/>
           </Balloon>
           <Balloon className="navigation__main-navigation-link navigation__main-sections-card">
-            <a href="/Sections" className="navigation__sections-link" unstyled>
+            <a href="/Sections" className="navigation__sections-link">
               Sections<Icon icon="down" size="28px" color="white" />
             </a>
             <div>

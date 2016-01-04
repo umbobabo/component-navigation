@@ -34,3 +34,35 @@
   width: var(--navigation-icon-size);
   margin-right: 5px;
 }
+
+.navigation__mobile-accordion .link-button__group {
+  display: flex;
+  align-items: center;
+  line-height: 2.1em;
+}
+
+/* Sticky navigation not allowed to scroll submenus
+if their container is deeper than the viewport so we
+need to have a fixed height */
+.accordion__level1 .content {
+  max-height: 60vh;
+  overflow-y: scroll;
+}
+
+.navigation__mobile-accordion.balloon--not-visible .Icon-close,
+.navigation__mobile-accordion.balloon--visible .Icon-hamburger {
+  display: none;
+}
+
+.navigation__mobile-accordion.balloon--not-visible .Icon-hamburger,
+.navigation__mobile-accordion.balloon--visible .Icon-close {
+  display: block;
+}
+
+.navigation__mobile-accordion .content .accordion__link {
+  font-size: 1em;
+}
+
+.navigation__mobile-accordion .accordion__link {
+  padding: 1em;
+}

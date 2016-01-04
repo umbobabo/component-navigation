@@ -75,6 +75,7 @@
   display: none;
   width: 1em;
   background: var(--color-economist);
+  height: 100%;
 }
 
 @media (--mobile-down) {
