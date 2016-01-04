@@ -8,8 +8,27 @@ import Balloon from '@economist/component-balloon';
 import SectionsCard from '@economist/component-sections-card';
 import context from '@economist/component-sections-card/context';
 import Accordion from '@economist/component-accordion';
-import accordionContext from '@economist/component-accordion/context.js';
-
+const accordionContext = [
+  {
+    title: 'Sections',
+    href: 'http://www.economist.com/sections',
+    children: context.sections,
+  },
+  {
+    title: 'Blogs',
+    href: 'http://www.economist.com/blogs',
+    children: context.blogs,
+  },
+  ...context.media,
+  {
+    title: 'Print Edition',
+    href: 'http://www.economist.com/printedition/',
+  },
+  {
+    title: 'Products',
+    href: 'http://www.economist.com/digital',
+  },
+];
 export default class Navigation extends React.Component {
 
   static get propTypes() {
