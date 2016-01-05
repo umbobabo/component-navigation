@@ -46,7 +46,7 @@ if their container is deeper than the viewport so we
 need to have a fixed height */
 .accordion__level1 .content {
   max-height: 60vh;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .navigation__mobile-accordion.balloon--not-visible .Icon-close,
@@ -65,4 +65,11 @@ need to have a fixed height */
 
 .navigation__mobile-accordion .accordion__link {
   padding: 1em;
+}
+
+.navigation__mobile-accordion .Icon-down svg,
+.navigation__mobile-accordion .Icon-up svg,
+.navigation__mobile-accordion .Icon-down use,
+.navigation__mobile-accordion .Icon-up use {
+  fill: var(--color-beijing);
 }
