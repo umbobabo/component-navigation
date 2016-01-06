@@ -1,6 +1,9 @@
 @import "./settings";
 @import "@economist/component-accordion";
 @import "@economist/component-accordion/styles.css";
+@import "@economist/component-icon/backgrounds/video.css";
+@import "@economist/component-icon/backgrounds/headset.css";
+@import "@economist/component-icon/backgrounds/film.css";
 
 .navigation__main-navigation-link.navigation__mobile-accordion {
   display: none !important;
