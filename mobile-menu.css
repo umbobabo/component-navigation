@@ -26,27 +26,22 @@
   align-items: center;
 }
 
+/* Sticky navigation not allowed to scroll submenus
+if their container is deeper than the viewport so we
+need to have a fixed height */
 .navigation__mobile-accordion .balloon-content {
   padding: 0;
+  max-height: calc(100vh - var(--navigation__default-height));
+  overflow-y: auto;
 }
 
 .navigation__mobile-accordion .Icon {
   width: var(--navigation-icon-size);
-  margin-right: 5px;
 }
 
 .navigation__mobile-accordion .link-button__group {
   display: flex;
   align-items: center;
-  line-height: 2.1em;
-}
-
-/* Sticky navigation not allowed to scroll submenus
-if their container is deeper than the viewport so we
-need to have a fixed height */
-.accordion__level1 .content {
-  max-height: 60vh;
-  overflow-y: auto;
 }
 
 .navigation__mobile-accordion.balloon--not-visible .Icon-close,
