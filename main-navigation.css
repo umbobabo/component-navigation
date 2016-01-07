@@ -26,14 +26,14 @@
   position: relative;
 }
 
-.navigation__sections-link .Icon-down {
+.navigation__main-sections-card .navigation__sections-link .Icon-down {
   position: absolute;
   margin-top: -12px;
   top: 50%;
   width: var(--navigation-icon-size);
 }
 
-.balloon--visible.navigation__main-navigation-link .Icon-down {
+.navigation__main-sections-card .balloon--visible.navigation__main-navigation-link .Icon-down {
   transform: rotate(180deg);
 }
 

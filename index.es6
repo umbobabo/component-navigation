@@ -8,6 +8,16 @@ import Balloon from '@economist/component-balloon';
 import SectionsCard from '@economist/component-sections-card';
 import context from '@economist/component-sections-card/context';
 import Accordion from '@economist/component-accordion';
+// Force media links to use icon as background.
+context.media.map((mediaLink) => {
+  mediaLink.icon = {
+    useBackground: true,
+    color: 'honolulu',
+    icon: mediaLink.meta,
+  };
+  return mediaLink;
+});
+
 const accordionContext = [
   {
     title: 'Sections',
