@@ -66,9 +66,7 @@ need to have a fixed height */
 }
 
 .navigation__mobile-accordion .Icon-down svg,
-.navigation__mobile-accordion .Icon-up svg,
-.navigation__mobile-accordion .Icon-down use,
-.navigation__mobile-accordion .Icon-up use {
+.navigation__mobile-accordion .Icon-up svg {
   fill: var(--color-beijing);
 }
 
