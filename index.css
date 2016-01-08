@@ -89,3 +89,9 @@
     display: block;
   }
 }
+
+/* Stop this from being taller than screen */
+.navigation__primary .navigation__main-sections-card .balloon--content {
+  overflow-y: auto;
+  max-height: calc(100vh - var(--navigation__default-height));
+}
