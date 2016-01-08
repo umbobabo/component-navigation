@@ -21,22 +21,22 @@ context.media.map((mediaLink) => {
 const accordionContext = [
   {
     title: 'Sections',
-    href: 'http://www.economist.com/sections',
+    href: '/sections',
     children: context.sections,
   },
   {
     title: 'Blogs',
-    href: 'http://www.economist.com/blogs',
+    href: '/blogs',
     children: context.blogs,
   },
   ...context.media,
   {
     title: 'Print Edition',
-    href: 'http://www.economist.com/printedition/',
+    href: '/printedition/',
   },
   {
     title: 'Products',
-    href: 'http://www.economist.com/digital',
+    href: '/digital',
   },
 ];
 export default class Navigation extends React.Component {
