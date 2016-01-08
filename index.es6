@@ -79,7 +79,7 @@ export default class Navigation extends React.Component {
           </Balloon>
           <Balloon className="navigation__main-navigation-link navigation__main-sections-card">
             <a href="/Sections" className="navigation__sections-link">
-              Sections<Icon icon="down" size="28px" color="white" />
+              Sections
             </a>
             <div>
               <SectionsCard data={context} />
