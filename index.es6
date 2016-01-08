@@ -9,13 +9,12 @@ import SectionsCard from '@economist/component-sections-card';
 import context from '@economist/component-sections-card/context';
 import Accordion from '@economist/component-accordion';
 // Force media links to use icon as background.
-context.media.map((mediaLink) => {
+context.media.forEach((mediaLink) => {
   mediaLink.icon = {
     useBackground: true,
     color: 'honolulu',
     icon: mediaLink.meta,
   };
-  return mediaLink;
 });
 
 const accordionContext = [
@@ -32,7 +31,7 @@ const accordionContext = [
   ...context.media,
   {
     title: 'Print Edition',
-    href: '/printedition/',
+    href: '/printedition',
   },
   {
     title: 'Products',
@@ -86,10 +85,10 @@ export default class Navigation extends React.Component {
               <SectionsCard data={context} />
             </div>
           </Balloon>
-          <a href="/there" className="navigation__main-navigation-link">
+          <a href="/printedition" className="navigation__main-navigation-link">
             Print edition
           </a>
-          <a href="/there" className="navigation__main-navigation-link">
+          <a href="/digital" className="navigation__main-navigation-link">
             Products
           </a>
           <div className="navigation__primary-expander"></div>
