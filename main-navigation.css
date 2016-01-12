@@ -38,20 +38,20 @@
 
 .navigation__main-navigation-link,
 .navigation__sections-link {
-   display: flex;
-   align-items: center;
- }
+  display: flex;
+  align-items: center;
+}
 
- /* IE9 Flexbox fallback */
- .navigation__primary {
-   display: table;
- }
+/* IE9 Flexbox fallback */
+.navigation__primary {
+  display: table;
+}
 
- .navigation__primary-inner {
-   display: table-row;
- }
+.navigation__primary-inner {
+  display: table-row;
+}
 
- .navigation__primary-inner > * {
-   display: table-cell;
-   vertical-align: middle;
- }
+.navigation__primary-inner > :not(.navigation__user-menu) {
+  display: table-cell;
+  vertical-align: middle;
+}
