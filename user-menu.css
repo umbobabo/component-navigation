@@ -18,6 +18,9 @@
   text-decoration: none;
   display: flex;
   align-items: center;
+}
+
+.navigation__user-menu-link--login {
   font-size: var(--search__search-label__font-size, var(--navigation-text-size));
 }
 
