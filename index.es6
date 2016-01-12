@@ -50,6 +50,8 @@ export default class Navigation extends React.Component {
       links: React.PropTypes.arrayOf(React.PropTypes.object),
       autohide: React.PropTypes.bool,
       svgUri: React.PropTypes.string,
+      userLoggedIn: React.PropTypes.bool,
+      currentUrl: React.PropTypes.string,
     };
   }
 
@@ -57,6 +59,51 @@ export default class Navigation extends React.Component {
     return {
       autohide: true,
     };
+  }
+
+  renderLoginLogout() {
+    const destinationParameter = this.props.currentUrl ?
+      '?destination=' + encodeURIComponent(this.props.currentUrl) :
+      '';
+    if (this.props.userLoggedIn) {
+      const logoutUrl = 'https://www.economist.com/logout' + destinationParameter;
+      return (
+        <Button
+          href={logoutUrl}
+          className="navigation__user-menu-link navigation__user-menu-link--logout"
+          icon={{ icon: 'user', size: '28px' }}
+          unstyled
+        >Log out</Button>
+      );
+    }
+    const loginUrl = 'https://www.economist.com/user/login' + destinationParameter;
+    const registerUrl = 'https://www.economist.com/user/register' + destinationParameter;
+    return (
+      <Balloon>
+        <Button
+          href={loginUrl}
+          className="navigation__user-menu-link navigation__user-menu-link--login"
+          icon={{ icon: 'user', size: '28px' }}
+          unstyled
+        >Log in</Button>
+        <div>
+          <Button
+            shadow
+            href={loginUrl}
+            className="navigation__user-menu-log-in-button"
+          >
+            Log in to The Economist
+          </Button>
+          <span className="navigation__user-menu-register">
+            New to The Economist?
+            <a
+              className="navigation__user-menu-register-link"
+              href={registerUrl}
+            >Register now</a>
+          </span>
+        </div>
+      </Balloon>
+    );
   }
 
   render() {
@@ -93,30 +140,7 @@ export default class Navigation extends React.Component {
           </a>
           <div className="navigation__primary-expander"></div>
           <div className="navigation__user-menu">
-            <Balloon>
-              <Button
-                href="https://www.economist.com/user/login"
-                className="navigation__user-menu-link"
-                icon={{ icon: 'user', size: '28px' }}
-                unstyled
-              >Log in</Button>
-              <div>
-                <Button
-                  shadow
-                  href="https://www.economist.com/user/login"
-                  className="navigation__user-menu-log-in-button"
-                >
-                  Log in to The Economist
-                </Button>
-                <span className="navigation__user-menu-register">
-                  New to The Economist?
-                  <a
-                    className="navigation__user-menu-register-link"
-                    href="https://www.economist.com/user/register"
-                  >Register now</a>
-                </span>
-              </div>
-            </Balloon>
+            {this.renderLoginLogout()}
           </div>
           <div className="navigation__search">
             <GoogleSearch/>
