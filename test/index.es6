@@ -29,7 +29,7 @@ describe(`A navigation`, () => {
         loginLogoutButton,
         'navigation__user-menu-link'
       );
-      linkButton.props.href.should.equal('https://www.economist.com/user/login?destination=%2Ffoo%2Fbar')
+      linkButton.props.href.should.equal('/user/login?destination=%2Ffoo%2Fbar')
     });
     it('When the user is logged in it\'s a link to /logout?destination={this.props.currentUrl}', () => {
       const instance = new Navigation({
@@ -37,7 +37,7 @@ describe(`A navigation`, () => {
         userLoggedIn: true,
       });
       instance.renderLoginLogout()
-        .props.href.should.equal('https://www.economist.com/logout?destination=%2Ffoo%2Fbar')
+        .props.href.should.equal('/logout?destination=%2Ffoo%2Fbar')
     });
   });
 });
