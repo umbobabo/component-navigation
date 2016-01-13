@@ -66,7 +66,7 @@ export default class Navigation extends React.Component {
       '?destination=' + encodeURIComponent(this.props.currentUrl) :
       '';
     if (this.props.userLoggedIn) {
-      const logoutUrl = 'https://www.economist.com/logout' + destinationParameter;
+      const logoutUrl = '/logout' + destinationParameter;
       return (
         <Button
           href={logoutUrl}
@@ -76,8 +76,8 @@ export default class Navigation extends React.Component {
         >Log out</Button>
       );
     }
-    const loginUrl = 'https://www.economist.com/user/login' + destinationParameter;
-    const registerUrl = 'https://www.economist.com/user/register' + destinationParameter;
+    const loginUrl = '/user/login' + destinationParameter;
+    const registerUrl = '/user/register' + destinationParameter;
     return (
       <Balloon>
         <Button

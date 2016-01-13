@@ -20,6 +20,10 @@
   align-items: center;
 }
 
+.navigation__user-menu-link--logout {
+  color: var(--navigation-user-icon-color-logout, var(--color-boston));
+}
+
 .navigation__user-menu-link--login {
   font-size: var(--search__search-label__font-size, var(--navigation-text-size));
 }
@@ -31,7 +35,12 @@
 
 .navigation__user-menu .Icon,
 .navigation__user-menu .Icon use {
-  fill: var(--color-thimphu);
+  fill: var(--navigation-user-icon-color, var(--color-thimphu));
+}
+
+.navigation__user-menu-link--logout .Icon,
+.navigation__user-menu-link--logout .Icon use {
+  fill: var(--navigation-user-icon-color-logout, var(--color-boston));
 }
 
 .navigation__user-menu .balloon-content {
