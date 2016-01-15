@@ -51,7 +51,7 @@
   display: table-row;
 }
 
-.navigation__primary-inner > :not(.navigation__user-menu) {
+.navigation__primary-inner > * {
   display: table-cell;
   vertical-align: middle;
 }

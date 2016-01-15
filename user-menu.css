@@ -28,7 +28,8 @@
   font-size: var(--search__search-label__font-size, var(--navigation-text-size));
 }
 
-.navigation__user-menu .balloon__link {
+.navigation__user-menu .balloon__link,
+.navigation__user-menu-link--logout {
   white-space: nowrap;
   height: var(--navigation__default-height);
 }
