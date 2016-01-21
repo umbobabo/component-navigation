@@ -58,6 +58,7 @@
   display: block;
   text-align: center;
   font-weight: bold;
+  background: var(--color-chicago);
 }
 
 .navigation__user-menu-register {
@@ -67,7 +68,7 @@
 }
 
 .navigation__user-menu-register-link {
-  color: var(--navigation__user-menu-register-link-color, var(--color-honolulu));
+  color: var(--navigation__user-menu-register-link-color, var(--color-chicago));
   margin-left: 1em;
   font-weight: bold;
 }
