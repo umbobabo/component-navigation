@@ -95,3 +95,17 @@
   overflow-y: auto;
   max-height: calc(100vh - var(--navigation__default-height));
 }
+
+@media (--mobile-up){
+  .navigation__sections-link:hover,
+  .navigation__main-navigation-link:hover,
+  .navigation__user-menu:hover .link-button__text,
+  .navigation__search:hover .search__search-label {
+    color: var(--navigation__default-hover-color, var(--color-london));
+  }
+
+  .navigation__user-menu:hover use,
+  .navigation__search:hover svg {
+    fill: var(--navigation__default-hover-color, var(--color-london));
+  }
+}
