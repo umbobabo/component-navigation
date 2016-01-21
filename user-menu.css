@@ -92,3 +92,7 @@
   width: var(--navigation-icon-size);
   margin-right: 5px;
 }
+
+.navigation__user-menu-the-economist-name {
+  font-style: italic;
+}

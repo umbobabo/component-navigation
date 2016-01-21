@@ -92,10 +92,10 @@ export default class Navigation extends React.Component {
             href={loginUrl}
             className="navigation__user-menu-log-in-button"
           >
-            Log in to The Economist
+            Log in to <span className="navigation__user-menu-the-economist-name">The Economist</span>
           </Button>
           <span className="navigation__user-menu-register">
-            New to The Economist?
+            New to <span className="navigation__user-menu-the-economist-name">The Economist</span>?
             <a
               className="navigation__user-menu-register-link"
               href={registerUrl}
