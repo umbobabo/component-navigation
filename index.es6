@@ -12,7 +12,7 @@ import Accordion from '@economist/component-accordion';
 context.media.forEach((mediaLink) => {
   mediaLink.icon = {
     useBackground: true,
-    color: 'honolulu',
+    color: 'chicago',
     icon: mediaLink.meta,
   };
 });

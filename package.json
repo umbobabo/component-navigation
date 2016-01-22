@@ -138,7 +138,7 @@
     "@economist/component-accordion": "^2.0.0",
     "@economist/component-balloon": "^1.4.0",
     "@economist/component-google-search": "^1.0.1",
-    "@economist/component-icon": "^5.2.0",
+    "@economist/component-icon": "^5.2.1",
     "@economist/component-link-button": "^1.1.0",
     "@economist/component-sections-card": "^1.0.2",
     "@economist/component-subscribe-message": "^1.0.4",
