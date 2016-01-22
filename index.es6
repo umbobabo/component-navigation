@@ -63,10 +63,9 @@ export default class Navigation extends React.Component {
 
   renderLoginLogout() {
     const destinationParameter = this.props.currentUrl ?
-      '?destination=' + encodeURIComponent(this.props.currentUrl) :
-      '';
+      `?destination=${encodeURIComponent(this.props.currentUrl)}` : '';
     if (this.props.userLoggedIn) {
-      const logoutUrl = '/logout' + destinationParameter;
+      const logoutUrl = `/logout${destinationParameter}`;
       return (
         <Button
           href={logoutUrl}
@@ -76,10 +75,10 @@ export default class Navigation extends React.Component {
         >Log out</Button>
       );
     }
-    const loginUrl = '/user/login' + destinationParameter;
-    const registerUrl = '/user/register' + destinationParameter;
+    const loginUrl = `/user/login${destinationParameter}`;
+    const registerUrl = `/user/register${destinationParameter}`;
     return (
-      <Balloon>
+      <Balloon showOnHover>
         <Button
           href={loginUrl}
           className="navigation__user-menu-link navigation__user-menu-link--login"
@@ -124,7 +123,10 @@ export default class Navigation extends React.Component {
             </a>
             <Accordion list={accordionContext}/>
           </Balloon>
-          <Balloon className="navigation__main-navigation-link navigation__main-sections-card">
+          <Balloon
+            className="navigation__main-navigation-link navigation__main-sections-card"
+            showOnHover
+          >
             <a href="/Sections" className="navigation__sections-link">
               Sections
             </a>
