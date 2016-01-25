@@ -77,14 +77,14 @@ export default class Navigation extends React.Component {
     }
     const loginUrl = `/user/login${destinationParameter}`;
     const registerUrl = `/user/register${destinationParameter}`;
+    const userMenuBalloonTrigger = (<Button
+      href={loginUrl}
+      className="navigation__user-menu-link navigation__user-menu-link--login"
+      icon={{ icon: 'user', size: '28px' }}
+      unstyled
+                                    >Log in</Button>);
     return (
-      <Balloon showOnHover>
-        <Button
-          href={loginUrl}
-          className="navigation__user-menu-link navigation__user-menu-link--login"
-          icon={{ icon: 'user', size: '28px' }}
-          unstyled
-        >Log in</Button>
+      <Balloon showOnHover trigger={userMenuBalloonTrigger}>
         <div>
           <Button
             shadow
@@ -107,6 +107,13 @@ export default class Navigation extends React.Component {
 
   render() {
     const svgUri = { uri: this.props.svgUri } || {};
+    const menuAccordionTrigger = (<a href="/Sections" className="navigation__sections-link">
+      <Icon icon="hamburger" size="28px" color="white" />
+      <Icon icon="close" size="28px" color="white" />
+    </a>);
+    const menuSectionsTrigger = (<a href="/Sections" className="navigation__sections-link">
+      Sections
+    </a>);
     const primaryNavigation = (
       <div className="navigation__primary" key="primary-navigation">
         <div className="navigation__primary-inner">
@@ -116,21 +123,15 @@ export default class Navigation extends React.Component {
           </a>
           <Balloon
             className="navigation__main-navigation-link navigation__mobile-accordion"
+            trigger={menuAccordionTrigger}
           >
-            <a href="/Sections" className="navigation__sections-link">
-              <Icon icon="hamburger" size="28px" color="white" />
-              <Icon icon="close" size="28px" color="white" />
-            </a>
             <Accordion list={accordionContext}/>
           </Balloon>
           <Balloon
             className="navigation__main-navigation-link navigation__main-sections-card"
             showOnHover
-          >
-            <a href="/Sections" className="navigation__sections-link">
-              Sections
-            </a>
-            <div>
+            trigger={menuSectionsTrigger}
+          ><div>
               <SectionsCard data={context} />
             </div>
           </Balloon>
