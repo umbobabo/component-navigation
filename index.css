@@ -65,7 +65,7 @@
   position: static;
 }
 
-@media (--mobile-up) {
+@media (--navigation-mobile-up) {
   .navigation__link-logo {
     min-width: 128px;
   }
@@ -82,7 +82,7 @@
   height: 100%;
 }
 
-@media (--mobile-down) {
+@media (--navigation-mobile-down) {
   .navigation__link-logo .Icon-economist {
     display: none;
   }
@@ -97,7 +97,7 @@
   max-height: calc(100vh - var(--navigation__default-height));
 }
 
-@media (--mobile-up){
+@media (--navigation-mobile-up){
   .navigation__sections-link:hover,
   .navigation__main-navigation-link:hover,
   .navigation__user-menu:hover .link-button__text,

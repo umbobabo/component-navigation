@@ -1,9 +1,7 @@
 @import "@economist/component-typography";
 
-@custom-media --mobile-down (width <= 768px);
-@custom-media --mobile-up (width >= 769px);
-@custom-media --tablet-down (width <= 992px);
-@custom-media --desktop-up (width >= 992px);
+@custom-media --navigation-mobile-down (width <= 768px);
+@custom-media --navigation-mobile-up (width >= 769px);
 
 :root {
   --navigation-text-size: var(--text-size-step--2);

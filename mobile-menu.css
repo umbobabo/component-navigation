@@ -10,7 +10,7 @@
   padding: 0;
 }
 
-@media (--mobile-down) {
+@media (--navigation-mobile-down) {
   .navigation__mobile-accordion.navigation__main-navigation-link {
     display: flex !important;
   }

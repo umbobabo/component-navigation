@@ -47,7 +47,7 @@
   padding-top: 4px;
 }
 
-@media (--mobile-down){
+@media (--navigation-mobile-down){
   .navigation__search  {
     padding: 0;
   }
