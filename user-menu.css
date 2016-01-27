@@ -62,7 +62,7 @@
   display: block;
   text-align: center;
   font-weight: bold;
-  background: var(--color-chicago);
+  background: var(--navigation__user-menu-background-color, var(--color-chicago));
 }
 
 .navigation__user-menu-register {

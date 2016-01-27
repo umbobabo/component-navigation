@@ -56,3 +56,8 @@
     width: var(--navigation__height, var(--navigation__default-height));
   }
 }
+
+/* Bring Google Search on front */
+.gssb_c {
+    z-index: 10000000;
+}
