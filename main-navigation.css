@@ -30,7 +30,7 @@
   display: none;
 }
 
-@media (--mobile-down) {
+@media (--navigation-mobile-down) {
   .navigation__main-navigation-link {
     display: none !important;
   }

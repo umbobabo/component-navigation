@@ -47,7 +47,7 @@
   padding-top: 4px;
 }
 
-@media (--mobile-down){
+@media (--navigation-mobile-down){
   .navigation__search  {
     padding: 0;
   }
@@ -55,4 +55,9 @@
     height: var(--navigation__height, var(--navigation__default-height));
     width: var(--navigation__height, var(--navigation__default-height));
   }
+}
+
+/* Bring Google Search on front */
+.gssb_c {
+    z-index: 10000000;
 }

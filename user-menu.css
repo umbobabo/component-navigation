@@ -6,8 +6,9 @@
   font-family: inherit;
   display: flex;
   align-items: stretch;
-  padding: 0 var(--navigation__default-menus-padding, var(--main-navigation-link-padding));
+  padding: 0;
 }
+
 
 .navigation__user-menu .link-button__group {
   margin-bottom: 5px;
@@ -26,6 +27,9 @@
 
 .navigation__user-menu-link--login {
   font-size: var(--search__search-label__font-size, var(--navigation-text-size));
+  padding: 0 var(--navigation__default-menus-padding, var(--main-navigation-link-padding));
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  outline: 0;
 }
 
 .navigation__user-menu .balloon__link,
@@ -58,6 +62,7 @@
   display: block;
   text-align: center;
   font-weight: bold;
+  background: var(--navigation__user-menu-background-color, var(--color-chicago));
 }
 
 .navigation__user-menu-register {
@@ -67,7 +72,7 @@
 }
 
 .navigation__user-menu-register-link {
-  color: var(--navigation__user-menu-register-link-color, var(--color-honolulu));
+  color: var(--navigation__user-menu-register-link-color, var(--color-chicago));
   margin-left: 1em;
   font-weight: bold;
 }
@@ -90,4 +95,8 @@
 .navigation__user-menu .Icon {
   width: var(--navigation-icon-size);
   margin-right: 5px;
+}
+
+.navigation__user-menu-the-economist-name {
+  font-style: italic;
 }

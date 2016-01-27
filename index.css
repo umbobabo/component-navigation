@@ -15,6 +15,7 @@
 .navigation {
   font-size: 1rem;
   font-family: var(--fontfamily-body);
+  z-index: 10000000;
 }
 
 .navigation a.navigation__main-navigation-link,
@@ -64,7 +65,7 @@
   position: static;
 }
 
-@media (--mobile-up) {
+@media (--navigation-mobile-up) {
   .navigation__link-logo {
     min-width: 128px;
   }
@@ -81,7 +82,7 @@
   height: 100%;
 }
 
-@media (--mobile-down) {
+@media (--navigation-mobile-down) {
   .navigation__link-logo .Icon-economist {
     display: none;
   }
@@ -94,4 +95,18 @@
 .navigation__primary .navigation__main-sections-card .balloon--content {
   overflow-y: auto;
   max-height: calc(100vh - var(--navigation__default-height));
+}
+
+@media (--navigation-mobile-up){
+  .navigation__sections-link:hover,
+  .navigation__main-navigation-link:hover,
+  .navigation__user-menu:hover .link-button__text,
+  .navigation__search:hover .search__search-label {
+    color: var(--navigation__default-hover-color, var(--color-london));
+  }
+
+  .navigation__user-menu:hover use,
+  .navigation__search:hover svg {
+    fill: var(--navigation__default-hover-color, var(--color-london));
+  }
 }

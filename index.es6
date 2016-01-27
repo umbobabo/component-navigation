@@ -12,7 +12,7 @@ import Accordion from '@economist/component-accordion';
 context.media.forEach((mediaLink) => {
   mediaLink.icon = {
     useBackground: true,
-    color: 'honolulu',
+    color: 'chicago',
     icon: mediaLink.meta,
   };
 });
@@ -63,10 +63,9 @@ export default class Navigation extends React.Component {
 
   renderLoginLogout() {
     const destinationParameter = this.props.currentUrl ?
-      '?destination=' + encodeURIComponent(this.props.currentUrl) :
-      '';
+      `?destination=${encodeURIComponent(this.props.currentUrl)}` : '';
     if (this.props.userLoggedIn) {
-      const logoutUrl = '/logout' + destinationParameter;
+      const logoutUrl = `/logout${destinationParameter}`;
       return (
         <Button
           href={logoutUrl}
@@ -76,26 +75,26 @@ export default class Navigation extends React.Component {
         >Log out</Button>
       );
     }
-    const loginUrl = '/user/login' + destinationParameter;
-    const registerUrl = '/user/register' + destinationParameter;
+    const loginUrl = `/user/login${destinationParameter}`;
+    const registerUrl = `/user/register${destinationParameter}`;
+    const userMenuBalloonTrigger = (<Button
+      href={loginUrl}
+      className="navigation__user-menu-link navigation__user-menu-link--login"
+      icon={{ icon: 'user', size: '28px' }}
+      unstyled
+                                    >Log in</Button>);
     return (
-      <Balloon>
-        <Button
-          href={loginUrl}
-          className="navigation__user-menu-link navigation__user-menu-link--login"
-          icon={{ icon: 'user', size: '28px' }}
-          unstyled
-        >Log in</Button>
+      <Balloon showOnHover trigger={userMenuBalloonTrigger}>
         <div>
           <Button
             shadow
             href={loginUrl}
             className="navigation__user-menu-log-in-button"
           >
-            Log in to The Economist
+            Log in to <span className="navigation__user-menu-the-economist-name">The Economist</span>
           </Button>
           <span className="navigation__user-menu-register">
-            New to The Economist?
+            New to <span className="navigation__user-menu-the-economist-name">The Economist</span>?
             <a
               className="navigation__user-menu-register-link"
               href={registerUrl}
@@ -108,6 +107,13 @@ export default class Navigation extends React.Component {
 
   render() {
     const svgUri = { uri: this.props.svgUri } || {};
+    const menuAccordionTrigger = (<a href="/Sections" className="navigation__sections-link">
+      <Icon icon="hamburger" size="28px" color="white" />
+      <Icon icon="close" size="28px" color="white" />
+    </a>);
+    const menuSectionsTrigger = (<a href="/Sections" className="navigation__sections-link">
+      Sections
+    </a>);
     const primaryNavigation = (
       <div className="navigation__primary" key="primary-navigation">
         <div className="navigation__primary-inner">
@@ -117,18 +123,15 @@ export default class Navigation extends React.Component {
           </a>
           <Balloon
             className="navigation__main-navigation-link navigation__mobile-accordion"
+            trigger={menuAccordionTrigger}
           >
-            <a href="/Sections" className="navigation__sections-link">
-              <Icon icon="hamburger" size="28px" color="white" />
-              <Icon icon="close" size="28px" color="white" />
-            </a>
             <Accordion list={accordionContext}/>
           </Balloon>
-          <Balloon className="navigation__main-navigation-link navigation__main-sections-card">
-            <a href="/Sections" className="navigation__sections-link">
-              Sections
-            </a>
-            <div>
+          <Balloon
+            className="navigation__main-navigation-link navigation__main-sections-card"
+            showOnHover
+            trigger={menuSectionsTrigger}
+          ><div>
               <SectionsCard data={context} />
             </div>
           </Balloon>
