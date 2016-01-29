@@ -124,7 +124,8 @@
     "lint": "eslint $npm_package_config_lint_opts .",
     "pages": "git stash save -u pages-stash && git branch -D gh-pages; git checkout --orphan gh-pages && git add -f $npm_package_config_ghpages_files && git commit -anm'ghpages' && git push origin HEAD:gh-pages -f",
     "prepages": "npm run doc",
-    "prepublish": "babel . -d . -x .es6 --ignore node_modules",
+    "removebadassets": "rm assets/icons.svg",
+    "prepublish": "removebadassets && babel . -d . -x .es6 --ignore node_modules",
     "prepublish:watch": "npm run prepublish -- -w",
     "pretest": "npm run lint",
     "provision": "devpack-configure ./package.json",
@@ -135,11 +136,11 @@
     "watch": "parallelshell 'npm run doc:watch' 'npm run prepublish:watch' 'npm run serve'"
   },
   "dependencies": {
-    "@economist/component-accordion": "^2.0.0",
+    "@economist/component-accordion": "^2.0.3",
     "@economist/component-balloon": "^2.0.0",
     "@economist/component-google-search": "^1.1.0",
     "@economist/component-icon": "^5.2.1",
-    "@economist/component-link-button": "^1.1.0",
+    "@economist/component-link-button": "^2.0.0",
     "@economist/component-sections-card": "^1.0.9",
     "@economist/component-subscribe-message": "^1.0.4",
     "react-sticky-position": "^2.0.0",
