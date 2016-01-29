@@ -26,6 +26,11 @@
   position: relative;
 }
 
+.navigation__main-navigation-link-subscribe {
+  /* TODO: Remove this part when font will be available, replace with font-weight bold */
+  font-family: 'Halifax Bold';
+}
+
 .navigation__main-navigation-link .balloon-content {
   right: 0;
 }
