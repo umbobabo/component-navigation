@@ -26,6 +26,18 @@
   position: relative;
 }
 
+.navigation__main-navigation-link .balloon-content {
+  right: 0;
+}
+
+.sections-card  .balloon-content {
+  padding: 3em 0;
+}
+
+.navigation__main-sections-card .balloon-content {
+  visibility: visible;
+}
+
 .navigation__main-navigation-link--not-visible .balloon-content {
   display: none;
 }

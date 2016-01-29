@@ -15,6 +15,7 @@ context.media.forEach((mediaLink) => {
     color: 'chicago',
     icon: mediaLink.meta,
   };
+  return mediaLink;
 });
 
 const accordionContext = [
