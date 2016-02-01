@@ -8,6 +8,7 @@ import Balloon from '@economist/component-balloon';
 import SectionsCard from '@economist/component-sections-card';
 import context from '@economist/component-sections-card/context';
 import Accordion from '@economist/component-accordion';
+const subscriptionPage = 'https://subscriptions.economist.com/';
 // Force media links to use icon as background.
 context.media.forEach((mediaLink) => {
   mediaLink.icon = {
@@ -37,6 +38,12 @@ const accordionContext = [
   {
     title: 'Products',
     href: '/digital',
+  },
+  {
+    title: 'Subscribe',
+    href: subscriptionPage,
+    target: '_blank',
+    unstyled: false,
   },
 ];
 export default class Navigation extends React.Component {
@@ -143,6 +150,12 @@ export default class Navigation extends React.Component {
             Products
           </a>
           <div className="navigation__primary-expander"></div>
+          <a href={subscriptionPage}
+            className="navigation__main-navigation-link navigation__main-navigation-link-subscribe"
+            target="_blank"
+          >
+            Subscribe
+          </a>
           <div className="navigation__user-menu">
             {this.renderLoginLogout()}
           </div>
