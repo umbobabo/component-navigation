@@ -139,7 +139,7 @@
     "@economist/component-balloon": "^2.0.0",
     "@economist/component-google-search": "^1.1.0",
     "@economist/component-icon": "^5.2.1",
-    "@economist/component-link-button": "^2.0.0",
+    "@economist/component-link-button": "^1.4.3",
     "@economist/component-sections-card": "^1.0.9",
     "@economist/component-subscribe-message": "^1.0.4",
     "react-sticky-position": "^2.0.0",
