@@ -47,7 +47,7 @@ const accordionContext = [
     unstyled: false,
     i13nModel: {
       action: 'click',
-      element: 'subscribe link',
+      element: 'subscribe',
     },
   },
 ];
@@ -160,7 +160,7 @@ export default class Navigation extends React.Component {
             target="_blank"
             i13nModel={{
               action: 'click',
-              element: 'subscribe link',
+              element: 'subscribe',
             }}
             unstyled
           >
