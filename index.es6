@@ -9,6 +9,7 @@ import SectionsCard from '@economist/component-sections-card';
 import context from '@economist/component-sections-card/context';
 import Accordion from '@economist/component-accordion';
 const subscriptionPage = 'https://subscriptions.economist.com/';
+/* eslint-disable id-match */
 // Force media links to use icon as background.
 context.media.forEach((mediaLink) => {
   mediaLink.icon = {
@@ -44,6 +45,10 @@ const accordionContext = [
     href: subscriptionPage,
     target: '_blank',
     unstyled: false,
+    i13nModel: {
+      action: 'click',
+      element: 'subscribe',
+    },
   },
 ];
 export default class Navigation extends React.Component {
@@ -150,12 +155,17 @@ export default class Navigation extends React.Component {
             Products
           </a>
           <div className="navigation__primary-expander"></div>
-          <a href={subscriptionPage}
+          <Button href={subscriptionPage}
             className="navigation__main-navigation-link navigation__main-navigation-link-subscribe"
             target="_blank"
+            i13nModel={{
+              action: 'click',
+              element: 'subscribe',
+            }}
+            unstyled
           >
             Subscribe
-          </a>
+          </Button>
           <div className="navigation__user-menu">
             {this.renderLoginLogout()}
           </div>

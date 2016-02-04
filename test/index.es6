@@ -29,7 +29,7 @@ describe(`A navigation`, () => {
         loginLogoutButton,
         'navigation__user-menu-link'
       );
-      linkButton.props.href.should.equal('/user/login?destination=%2Ffoo%2Fbar')
+      linkButton.href.should.contain('/user/login?destination=%2Ffoo%2Fbar')
     });
     it('When the user is logged in it\'s a link to /logout?destination={this.props.currentUrl}', () => {
       const instance = new Navigation({
