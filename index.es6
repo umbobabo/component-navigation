@@ -6,51 +6,8 @@ import Button from '@economist/component-link-button';
 import GoogleSearch from '@economist/component-google-search';
 import Balloon from '@economist/component-balloon';
 import SectionsCard from '@economist/component-sections-card';
-import context from '@economist/component-sections-card/context';
 import Accordion from '@economist/component-accordion';
-const subscriptionPage = 'https://subscriptions.economist.com/';
-/* eslint-disable id-match */
-// Force media links to use icon as background.
-context.media.forEach((mediaLink) => {
-  mediaLink.icon = {
-    useBackground: true,
-    color: 'chicago',
-    icon: mediaLink.meta,
-  };
-  return mediaLink;
-});
 
-const accordionContext = [
-  {
-    title: 'Sections',
-    href: '/sections',
-    children: context.sections,
-  },
-  {
-    title: 'Blogs',
-    href: '/blogs',
-    children: context.blogs,
-  },
-  ...context.media,
-  {
-    title: 'Print Edition',
-    href: '/printedition',
-  },
-  {
-    title: 'Products',
-    href: '/digital',
-  },
-  {
-    title: 'Subscribe',
-    href: subscriptionPage,
-    target: '_blank',
-    unstyled: false,
-    i13nModel: {
-      action: 'click',
-      element: 'subscribe',
-    },
-  },
-];
 export default class Navigation extends React.Component {
 
   static get propTypes() {
@@ -65,6 +22,9 @@ export default class Navigation extends React.Component {
       svgUri: React.PropTypes.string,
       userLoggedIn: React.PropTypes.bool,
       currentUrl: React.PropTypes.string,
+      subscriptionPage: React.PropTypes.string,
+      sectionsCardData: React.PropTypes.object.isRequired,
+      accordionData: React.PropTypes.array.isRequired,
     };
   }
 
@@ -125,7 +85,7 @@ export default class Navigation extends React.Component {
       <Icon icon="close" size="28px" color="white" />
     </a>);
     const menuSectionsTrigger = (<a href="/Sections" className="navigation__sections-link">
-      Sections
+      Topics
     </a>);
     const primaryNavigation = (
       <div className="navigation__primary" key="primary-navigation">
@@ -138,24 +98,25 @@ export default class Navigation extends React.Component {
             className="navigation__main-navigation-link navigation__mobile-accordion"
             trigger={menuAccordionTrigger}
           >
-            <Accordion list={accordionContext}/>
+            <Accordion list={this.props.accordionData}/>
           </Balloon>
           <Balloon
             className="navigation__main-navigation-link navigation__main-sections-card"
             showOnHover
             trigger={menuSectionsTrigger}
-          ><div>
-              <SectionsCard data={context} />
+          >
+            <div>
+              <SectionsCard data={this.props.sectionsCardData}/>
             </div>
           </Balloon>
           <a href="/printedition" className="navigation__main-navigation-link">
             Print edition
           </a>
           <a href="/digital" className="navigation__main-navigation-link">
-            Products
+            More
           </a>
           <div className="navigation__primary-expander"></div>
-          <Button href={subscriptionPage}
+          <Button href={this.props.subscriptionPage}
             className="navigation__main-navigation-link navigation__main-navigation-link-subscribe"
             target="_blank"
             i13nModel={{
