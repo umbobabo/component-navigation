@@ -22,7 +22,7 @@ export default class Navigation extends React.Component {
       svgUri: React.PropTypes.string,
       userLoggedIn: React.PropTypes.bool,
       currentUrl: React.PropTypes.string,
-      subscriptionPage: React.PropTypes.string,
+      sharedMenu: React.PropTypes.object.isRequired,
       sectionsCardData: React.PropTypes.object.isRequired,
       accordionData: React.PropTypes.array.isRequired,
     };
@@ -84,8 +84,8 @@ export default class Navigation extends React.Component {
       <Icon icon="hamburger" size="28px" color="white" />
       <Icon icon="close" size="28px" color="white" />
     </a>);
-    const menuSectionsTrigger = (<a href="/Sections" className="navigation__sections-link">
-      Topics
+    const menuSectionsTrigger = (<a href={this.props.sharedMenu.topic.href} className="navigation__sections-link">
+      {this.props.sharedMenu.topic.title}
     </a>);
     const primaryNavigation = (
       <div className="navigation__primary" key="primary-navigation">
@@ -112,11 +112,11 @@ export default class Navigation extends React.Component {
           <a href="/printedition" className="navigation__main-navigation-link">
             Print edition
           </a>
-          <a href="/digital" className="navigation__main-navigation-link">
-            More
+          <a href={this.props.sharedMenu.more.href} className="navigation__main-navigation-link">
+            {this.props.sharedMenu.more.title}
           </a>
           <div className="navigation__primary-expander"></div>
-          <Button href={this.props.subscriptionPage}
+          <Button href={this.props.sharedMenu.subscribe.href}
             className="navigation__main-navigation-link navigation__main-navigation-link-subscribe"
             target="_blank"
             i13nModel={{
@@ -125,7 +125,7 @@ export default class Navigation extends React.Component {
             }}
             unstyled
           >
-            Subscribe
+            {this.props.sharedMenu.subscribe.title}
           </Button>
           <div className="navigation__user-menu">
             {this.renderLoginLogout()}

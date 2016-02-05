@@ -4,7 +4,6 @@ import TestUtils from 'react-addons-test-utils';
 import links from '../links';
 // Get data.
 import context from '@economist/component-sections-card/context';
-const subscriptionPage = 'https://subscriptions.economist.com/';
 /* eslint-disable id-match */
 // Force media links to use icon as background.
 context.media.forEach((mediaLink) => {
@@ -16,10 +15,24 @@ context.media.forEach((mediaLink) => {
   return mediaLink;
 });
 
+const sharedMenu = {
+  topic: {
+    title: 'Topics',
+    href: '/sections',
+  },
+  more: {
+    title: 'More',
+    href: '/digital',
+  },
+  subscribe: {
+    title: 'Subscribe',
+    href: 'https://subscriptions.economist.com/',
+  },
+};
 const accordionContext = [
   {
-    title: 'Sections',
-    href: '/sections',
+    title: sharedMenu.topic.title,
+    href: sharedMenu.topic.href,
     children: context.sections,
   },
   {
@@ -33,12 +46,12 @@ const accordionContext = [
     href: '/printedition',
   },
   {
-    title: 'Products',
-    href: '/digital',
+    title: sharedMenu.more.title,
+    href: sharedMenu.more.href,
   },
   {
-    title: 'Subscribe',
-    href: subscriptionPage,
+    title: sharedMenu.subscribe.title,
+    href: sharedMenu.subscribe.href,
     target: '_blank',
     unstyled: false,
     i13nModel: {
@@ -47,7 +60,6 @@ const accordionContext = [
     },
   },
 ];
-
 const registered = [ links.subscribe, links.myeconomist, links.logout ];
 describe(`A navigation`, () => {
   describe(`it's a React component`, () => {
@@ -61,7 +73,7 @@ describe(`A navigation`, () => {
           links={registered}
           sectionsCardData={context}
           accordionData={accordionContext}
-          subscriptionPage={subscriptionPage}
+          sharedMenu={sharedMenu}
         />).should.equal(true);
     });
   });
@@ -71,7 +83,7 @@ describe(`A navigation`, () => {
         currentUrl: '/foo/bar',
         sectionsCardData: context,
         accordionData: accordionContext,
-        subscriptionPage,
+        sharedMenu,
       });
       const loginLogoutButton = TestUtils.renderIntoDocument(
         instance.renderLoginLogout()
@@ -80,7 +92,7 @@ describe(`A navigation`, () => {
         loginLogoutButton,
         'navigation__user-menu-link'
       );
-      linkButton.href.should.contain('/user/login?destination=%2Ffoo%2Fbar')
+      linkButton.href.should.contain('/user/login?destination=%2Ffoo%2Fbar');
     });
     it('When the user is logged in it\'s a link to /logout?destination={this.props.currentUrl}', () => {
       const instance = new Navigation({
@@ -88,10 +100,10 @@ describe(`A navigation`, () => {
         userLoggedIn: true,
         sectionsCardData: context,
         accordionData: accordionContext,
-        subscriptionPage,
+        sharedMenu,
       });
       instance.renderLoginLogout()
-        .props.href.should.equal('/logout?destination=%2Ffoo%2Fbar')
+        .props.href.should.equal('/logout?destination=%2Ffoo%2Fbar');
     });
   });
 });
