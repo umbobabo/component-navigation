@@ -1,6 +1,6 @@
 {
   "name": "@economist/component-navigation",
-  "version": "1.10.0",
+  "version": "1.10.1",
   "description": "A navigation masthead",
   "author": "The Economist (http://economist.com)",
   "license": "LicenseRef-LICENSE",
@@ -135,7 +135,7 @@
     "watch": "parallelshell 'npm run doc:watch' 'npm run prepublish:watch' 'npm run serve'"
   },
   "dependencies": {
-    "@economist/component-accordion": "^2.0.3",
+    "@economist/component-accordion": "^2.1.0",
     "@economist/component-balloon": "^2.0.0",
     "@economist/component-google-search": "^1.1.0",
     "@economist/component-icon": "^5.2.1",
