@@ -49,6 +49,13 @@
   }
 }
 
+@media (--navigation-tablet-down) and (--navigation-mobile-up) {
+  .navigation__main-navigation-link {
+    padding-left: 1.8em;
+    padding-right: 1.8em;
+  }
+}
+
 .navigation__main-navigation-link,
 .navigation__sections-link {
   display: flex;
