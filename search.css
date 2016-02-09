@@ -46,12 +46,22 @@
 }
 
 @media (--navigation-mobile-down){
+  .navigation__search .search__magnifier {
+    height: var(--navigation__height, var(--navigation__default-height));
+    width: var(--navigation__height, var(--navigation__default-height));
+  }
+}
+
+@media (--navigation-tablet-down) {
   .navigation__search  {
     padding: 0;
   }
-  .search__magnifier {
-    height: var(--navigation__height, var(--navigation__default-height));
-    width: var(--navigation__height, var(--navigation__default-height));
+  .navigation__search .search__magnifier {
+    min-width: 50px;
+    text-align: center;
+  }
+  .navigation__search .search__search-label {
+    display: none;
   }
 }
 
