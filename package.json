@@ -151,6 +151,7 @@
     "@economist/component-palette": "^1.4.4",
     "@economist/component-typography": "^1.4.3",
     "babel": "^5.8.23",
+    "babel-core": "^5.8.35",
     "babelify": "^6.3.0",
     "browser-sync": "^2.8.2",
     "browserify": "^11.0.1",
