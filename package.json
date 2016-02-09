@@ -1,6 +1,6 @@
 {
   "name": "@economist/component-navigation",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "A navigation masthead",
   "author": "The Economist (http://economist.com)",
   "license": "LicenseRef-LICENSE",
@@ -76,9 +76,6 @@
       },
       {
         "contents": "svg4everybody();"
-      },
-      {
-        "contents": "</script><!-- lol html injection -->    <script type=\"text/javascript\"> (function() { var path = '//easy.myfonts.net/v2/js?sid=207020(font-family=FF+Milo+Serif+Pro)&sid=207025(font-family=FF+Milo+Serif+Pro+Med+Italic)&sid=207029(font-family=FF+Milo+Serif+Pro+Bold)&key=ADKczqjSur', protocol = ('https:' == document.location.protocol ? 'https:' : 'http:'), trial = document.createElement('script'); trial.type = 'text/javascript'; trial.async = true; trial.src = protocol + path; var head = document.getElementsByTagName(\"head\")[0]; head.appendChild(trial); })(); </script> <script type=\"text/javascript\"> (function() { var path = '//easy.myfonts.net/v2/js?sid=274518(font-family=Halifax+Regular)&sid=274519(font-family=Halifax+Light)&sid=274524(font-family=Halifax+Bold)&key=LUwLgIpMrH', protocol = ('https:' == document.location.protocol ? 'https:' : 'http:'), trial = document.createElement('script'); trial.type = 'text/javascript'; trial.async = true; trial.src = protocol + path; var head = document.getElementsByTagName(\"head\")[0]; head.appendChild(trial); })(); </script>     <script>/* end my html injection */"
       }
     ],
     "sections": [
@@ -135,13 +132,13 @@
     "watch": "parallelshell 'npm run doc:watch' 'npm run prepublish:watch' 'npm run serve'"
   },
   "dependencies": {
-    "@economist/component-accordion": "^2.1.0",
+    "@economist/component-accordion": "^4.0.0",
     "@economist/component-balloon": "^2.0.0",
-    "@economist/component-google-search": "^1.1.0",
+    "@economist/component-google-search": "^2.0.0",
     "@economist/component-icon": "^5.2.1",
-    "@economist/component-link-button": "^1.4.3",
-    "@economist/component-sections-card": "^1.0.9",
-    "@economist/component-subscribe-message": "^1.0.4",
+    "@economist/component-link-button": "^2.0.0",
+    "@economist/component-sections-card": "^3.0.0",
+    "@economist/component-subscribe-message": "^1.2.0",
     "react-sticky-position": "^2.0.0",
     "svg4everybody": "^2.0.0"
   },
@@ -149,7 +146,7 @@
     "@economist/component-devpack": "^3.6.1",
     "@economist/component-grid": "^1.2.2",
     "@economist/component-palette": "^1.4.4",
-    "@economist/component-typography": "^1.4.3",
+    "@economist/component-typography": "^3.1.1",
     "babel": "^5.8.23",
     "babelify": "^6.3.0",
     "browser-sync": "^2.8.2",

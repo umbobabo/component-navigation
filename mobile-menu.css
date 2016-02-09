@@ -77,8 +77,8 @@ need to have a fixed height */
 }
 
 .navigation__mobile-accordion .link-button--icon:not(.accordionExpander__link) {
-    background-size: 2em;
-    background-position: 1em 50%;
+  background-size: 2em;
+  background-position: 1em 50%;
 }
 
 .navigation__mobile-accordion .link-button--icon-background {
@@ -87,9 +87,9 @@ need to have a fixed height */
 
 /* Workaround to fix the no-baseline aligment of the font */
 .navigation__mobile-accordion .link-button--icon-background:before {
-    display: block;
-    height: 0.28em;
-    content: '';
+  display: block;
+  height: 0.28em;
+  content: '';
 }
 
 .navigation__mobile-accordion .link-button--styled {

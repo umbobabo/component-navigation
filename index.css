@@ -11,10 +11,9 @@
 @import "@economist/component-icon/backgrounds/video.css";
 @import "@economist/component-icon/backgrounds/film.css";
 
-
 .navigation {
   font-size: 1rem;
-  font-family: var(--fontfamily-body);
+  font-family: var(--fontfamily-sans);
   z-index: 10000000;
 }
 

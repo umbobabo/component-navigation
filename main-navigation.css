@@ -1,3 +1,4 @@
+@import "@economist/component-typography";
 @import './settings';
 @import '@economist/component-sections-card';
 
@@ -11,9 +12,9 @@
 }
 
 .navigation__main-navigation-link {
-   align-self: center;
-   font-size: var(--navigation-text-size);
-   padding: 0 var(--main-navigation-link-padding);
+  align-self: center;
+  font-size: var(--navigation-text-size);
+  padding: 0 var(--main-navigation-link-padding);
  }
 
 .navigation__main-navigation-link,
@@ -27,8 +28,7 @@
 }
 
 .navigation__main-navigation-link-subscribe {
-  /* TODO: Remove this part when font will be available, replace with font-weight bold */
-  font-family: 'Halifax Bold';
+  font-family: var(--fontfamily-sans);
 }
 
 .navigation__main-navigation-link .balloon-content {
