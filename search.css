@@ -7,7 +7,6 @@
   --search__search-label__font-size: var(--navigation-text-size);
 }
 
-
 .navigation__primary-inner {
   display: flex;
 }
@@ -41,7 +40,6 @@
 .navigation .search .Icon-magnifier {
   margin-right: 4px;
 }
-
 
 .navigation .search__search-label {
   padding-top: 4px;
