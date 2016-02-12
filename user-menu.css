@@ -56,7 +56,7 @@
 }
 
 .navigation__user-menu-log-in-button {
-  margin: auto;
+  margin: 0 auto 2em;
   clear: both;
   display: block;
   text-align: center;
@@ -64,27 +64,28 @@
   background: var(--navigation__user-menu-background-color, var(--color-chicago));
 }
 
-.navigation__user-menu-register {
+.navigation__user-menu-linklist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   font-size: var(--text-size-step--2);
-  margin-top: 2em;
-  display: block;
 }
 
-.navigation__user-menu-register-link {
-  color: var(--navigation__user-menu-register-link-color, var(--color-chicago));
-  margin-left: 1em;
-  font-weight: bold;
-}
-
-.navigation__user-menu-manage-subscription {
-  font-size: var(--text-size-step--2);
-  margin-top: 2em;
+.navigation__user-menu-linklist-item {
   display: block;
   text-align: left;
 }
 
-.navigation__user-menu-manage-subscription-link {
-  color: var(--navigation__user-menu-manage-subscription-link-color, var(--color-chicago));
+.navigation__user-menu-linklist-item:not(:first-child) {
+  margin-top: 2em;
+}
+
+.navigation__user-menu-linklist-item--center {
+  text-align: center;
+}
+
+.navigation__user-menu-linklist-link {
+  color: var(--navigation__user-menu-linklist-link-color, var(--color-chicago));
   margin-left: 1em;
   font-weight: bold;
 }
