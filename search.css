@@ -41,6 +41,10 @@
   margin-right: 4px;
 }
 
+.navigation__search .balloon {
+  display: flex;
+}
+
 .navigation .search__search-label {
   padding-top: 4px;
 }

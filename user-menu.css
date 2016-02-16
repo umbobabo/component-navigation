@@ -13,22 +13,8 @@
   margin-bottom: 5px;
 }
 
-.navigation__user-menu-link {
-  color: var(--color-thimphu);
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-}
-
 .navigation__user-menu-link--logout {
   color: var(--navigation-user-icon-color-logout, var(--color-boston));
-}
-
-.navigation__user-menu-link--login {
-  font-size: var(--search__search-label__font-size, var(--navigation-text-size));
-  padding: 0 var(--navigation__default-menus-padding, var(--main-navigation-link-padding));
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
-  outline: 0;
 }
 
 .navigation__user-menu .balloon__link,

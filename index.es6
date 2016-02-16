@@ -42,7 +42,7 @@ export default class Navigation extends React.Component {
       return (
         <Button
           href={logoutUrl}
-          className="navigation__user-menu-link navigation__user-menu-link--logout"
+          className="navigation__user-menu-link navigation__user-menu-link--logout navigation__first-level-link"
           icon={{ icon: 'user', size: '28px' }}
           unstyled
         >Log out</Button>
@@ -50,12 +50,17 @@ export default class Navigation extends React.Component {
     }
     const loginUrl = `/user/login${destinationParameter}`;
     const registerUrl = `/user/register${destinationParameter}`;
-    const userMenuBalloonTrigger = (<Button
-      href={loginUrl}
-      className="navigation__user-menu-link navigation__user-menu-link--login"
-      icon={{ icon: 'user', size: '28px' }}
-      unstyled
-                                    >Log in</Button>);
+    const userMenuBalloonTrigger = (
+      <Button
+        href={loginUrl}
+        className="navigation__user-menu-link navigation__user-menu-link--login navigation__first-level-link"
+        icon={{
+          icon: 'user',
+          color: 'thimphu',
+          'useBackground': true,
+        }}
+        unstyled
+      >Log in</Button>);
     return (
       <Balloon showOnHover trigger={userMenuBalloonTrigger}>
         <div>
@@ -84,9 +89,22 @@ export default class Navigation extends React.Component {
       <Icon icon="hamburger" size="28px" color="white" />
       <Icon icon="close" size="28px" color="white" />
     </a>);
-    const menuSectionsTrigger = (<a href={this.props.sharedMenu.topic.href} className="navigation__sections-link">
-      {this.props.sharedMenu.topic.title}
-    </a>);
+    const menuSectionsTrigger = (
+      <a href={this.props.sharedMenu.topic.href}
+        className="navigation__sections-link navigation__main-navigation-link"
+      >{this.props.sharedMenu.topic.title}</a>
+    );
+    const userSearchBalloonTrigger = (
+      <Button
+        href="http://www.economist.com/search/"
+        className="navigation__search-menu-link--login navigation__first-level-link"
+        icon={{
+          icon: 'magnifier',
+          color: 'thimphu',
+          'useBackground': true,
+        }}
+        unstyled
+      >Search</Button>);
     const primaryNavigation = (
       <div className="navigation__primary" key="primary-navigation">
         <div className="navigation__primary-inner">
@@ -101,7 +119,7 @@ export default class Navigation extends React.Component {
             <Accordion list={this.props.accordionData}/>
           </Balloon>
           <Balloon
-            className="navigation__main-navigation-link navigation__main-sections-card"
+            className="navigation__main-sections-card"
             showOnHover
             trigger={menuSectionsTrigger}
           >
@@ -131,7 +149,9 @@ export default class Navigation extends React.Component {
             {this.renderLoginLogout()}
           </div>
           <div className="navigation__search">
-            <GoogleSearch/>
+            <Balloon trigger={userSearchBalloonTrigger} unstyled>
+              <GoogleSearch />
+            </Balloon>
           </div>
         </div>
       </div>
