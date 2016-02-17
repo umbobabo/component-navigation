@@ -6,11 +6,13 @@
   font-family: inherit;
   display: flex;
   align-items: stretch;
-  padding: 0;
+  padding: 0 var(--navigation__default-menus-padding, var(--main-navigation-link-padding));
 }
 
-.navigation__user-menu .link-button__group {
-  margin-bottom: 5px;
+.navigation__user-menu .icon--user-thimphu {
+  background-size: 24px 24px;
+  padding-left: 30px;
+  background-position: left center;
 }
 
 .navigation__user-menu-link {
@@ -24,7 +26,6 @@
 .navigation__user-menu-link--login {
   color: var(--navigation-user-menu-color, var(--color-thimphu));
   font-size: var(--navigation-user-menu-font-size, var(--navigation-text-size));
-  padding: 0 var(--navigation__default-menus-padding, var(--main-navigation-link-padding));
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   outline: 0;
 }
@@ -33,16 +34,6 @@
 .navigation__user-menu-link--logout {
   white-space: nowrap;
   height: var(--navigation__default-height);
-}
-
-.navigation__user-menu .Icon,
-.navigation__user-menu .Icon use {
-  fill: var(--navigation-user-icon-color, var(--color-thimphu));
-}
-
-.navigation__user-menu-link--logout .Icon,
-.navigation__user-menu-link--logout .Icon use {
-  fill: var(--navigation-user-menu-color, var(--color-thimphu));
 }
 
 .navigation__user-menu .balloon-content {
@@ -113,11 +104,6 @@
   .navigation__user-menu .balloon-content {
     right: -40px !important;
   }
-}
-
-.navigation__user-menu .Icon {
-  width: var(--navigation-icon-size);
-  margin-right: 5px;
 }
 
 .navigation__user-menu-the-economist-name {
