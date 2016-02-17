@@ -80,7 +80,7 @@ export default class Navigation extends React.Component {
 
   render() {
     const svgUri = { uri: this.props.svgUri } || {};
-    const menuAccordionTrigger = (<a href="/Sections" className="navigation__sections-link">
+    const menuAccordionTrigger = (<a href="/Sections" className="navigation__sections-link navigation--tappable-icon tappable-icon">
       <Icon icon="hamburger" size="28px" color="white" />
       <Icon icon="close" size="28px" color="white" />
     </a>);
