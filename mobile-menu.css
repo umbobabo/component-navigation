@@ -17,6 +17,10 @@
   }
 }
 
+.navigation--tappable-icon {
+  padding: 0 2em;
+}
+
 .navigation__mobile-accordion.accordionExpander--not-visible .balloon-content {
   display: none;
 }
@@ -29,8 +33,6 @@
 .navigation__mobile-accordion .navigation__sections-link {
   display: flex;
   align-items: center;
-  padding: 0px;
-  margin: 0 2em;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   outline: 0;
 }
