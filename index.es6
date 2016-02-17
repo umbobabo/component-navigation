@@ -18,9 +18,12 @@ export default class Navigation extends React.Component {
         React.PropTypes.element,
       ]),
       links: React.PropTypes.arrayOf(React.PropTypes.object),
+      penName: React.PropTypes.string,
+      logoutDestination: React.PropTypes.string,
       autohide: React.PropTypes.bool,
       svgUri: React.PropTypes.string,
       userLoggedIn: React.PropTypes.bool,
+      userIsSubscriber: React.PropTypes.bool,
       currentUrl: React.PropTypes.string,
       sharedMenu: React.PropTypes.object.isRequired,
       sectionsCardData: React.PropTypes.object.isRequired,
@@ -31,49 +34,136 @@ export default class Navigation extends React.Component {
   static get defaultProps() {
     return {
       autohide: true,
+      penName: 'guest-olejses',
+      logoutDestination: '',
     };
   }
 
   renderLoginLogout() {
-    const destinationParameter = this.props.currentUrl ?
-      `?destination=${encodeURIComponent(this.props.currentUrl)}` : '';
-    if (this.props.userLoggedIn) {
-      const logoutUrl = `/logout${destinationParameter}`;
-      return (
-        <Button
-          href={logoutUrl}
-          className="navigation__user-menu-link navigation__user-menu-link--logout"
-          icon={{ icon: 'user', size: '28px' }}
-          unstyled
-        >Log out</Button>
-      );
-    }
-    const loginUrl = `/user/login${destinationParameter}`;
+    const { currentUrl, userLoggedIn, userIsSubscriber, penName, logoutDestination } = this.props;
+    const destinationParameter = currentUrl ? `?destination=${encodeURIComponent(currentUrl)}` : '';
+    const buttonUrl = userLoggedIn ? `/logout${destinationParameter}` : `/user/login${destinationParameter}`;
+    const buttonClassSuffix = userLoggedIn ? 'login' : 'logout';
+    const buttonText = userLoggedIn ? `My Account` : `Log in`;
     const registerUrl = `/user/register${destinationParameter}`;
-    const userMenuBalloonTrigger = (<Button
-      href={loginUrl}
-      className="navigation__user-menu-link navigation__user-menu-link--login"
-      icon={{ icon: 'user', size: '28px' }}
-      unstyled
-                                    >Log in</Button>);
+    const userMenuBalloonTrigger = (
+      <Button
+        href={buttonUrl}
+        className={`navigation__user-menu-link navigation__user-menu-link--${buttonClassSuffix}`}
+        icon={{ icon: 'user', size: '28px' }}
+        unstyled
+      >{buttonText}</Button>
+    );
+    if (userLoggedIn && userIsSubscriber) {
+      return (
+        <Balloon showOnHover trigger={userMenuBalloonTrigger} className="navigation__user-menu-popup--subscriber">
+          <ul className="navigation__user-menu-linklist">
+            <li className="navigation__user-menu-linklist-item">
+              <a className="navigation__user-menu-linklist-link" href="/user">
+                My account
+              </a>
+            </li>
+            <li className="navigation__user-menu-linklist-item">
+              <a className="navigation__user-menu-linklist-link" href="https://subscriptions.economist.com">
+                Manage my subscription
+              </a>
+            </li>
+            <li className="navigation__user-menu-linklist-item">
+              <a className="navigation__user-menu-linklist-link" href="/subscriptions/renew">
+                Renew my subscription
+              </a>
+            </li>
+            <li className="navigation__user-menu-linklist-item">
+              <a className="navigation__user-menu-linklist-link" href="https://subscriptions.economist.com">
+                Buy a gift subscription
+              </a>
+            </li>
+            <li className="navigation__user-menu-linklist-item">
+              <a className="navigation__user-menu-linklist-link" href={`/users/${ penName }/newsletters`}>
+                Newsletters
+              </a>
+            </li>
+            <li className="navigation__user-menu-linklist-item">
+              <a className="navigation__user-menu-linklist-link" href={`/users/${ penName }/comments`}>
+                My comments
+              </a>
+            </li>
+            <li className="navigation__user-menu-linklist-item">
+              <a
+                className="navigation__user-menu-linklist-link--cta"
+                href={`/logout?destination=${ logoutDestination }`}
+              >
+                Log out
+              </a>
+            </li>
+          </ul>
+        </Balloon>
+      )
+    }
+    if (userLoggedIn) {
+      return (
+        <Balloon showOnHover trigger={userMenuBalloonTrigger} className="navigation__user-menu-popup--registered">
+          <ul className="navigation__user-menu-linklist">
+            <li className="navigation__user-menu-linklist-item">
+              <a className="navigation__user-menu-linklist-link" href="/user">
+                My account
+              </a>
+            </li>
+            <li className="navigation__user-menu-linklist-item">
+              <a className="navigation__user-menu-linklist-link" href="https://subscriptions.economist.com">
+                Subscribe to The Economist
+              </a>
+            </li>
+            <li className="navigation__user-menu-linklist-item">
+              <a className="navigation__user-menu-linklist-link" href="/subscriptions/activation">
+                Activate my digital subscription
+              </a>
+            </li>
+            <li className="navigation__user-menu-linklist-item">
+              <a className="navigation__user-menu-linklist-link" href="https://subscriptions.economist.com">
+                Buy a gift subscription
+              </a>
+            </li>
+            <li className="navigation__user-menu-linklist-item">
+              <a className="navigation__user-menu-linklist-link" href={`/users/${ penName }/newsletters`}>
+                Newsletters
+              </a>
+            </li>
+            <li className="navigation__user-menu-linklist-item">
+              <a className="navigation__user-menu-linklist-link" href={`/users/${ penName }/comments`}>
+                My comments
+              </a>
+            </li>
+            <li className="navigation__user-menu-linklist-item">
+              <a
+                className="navigation__user-menu-linklist-link--cta"
+                href={`/logout?destination=${ logoutDestination }`}
+              >
+                Log out
+              </a>
+            </li>
+          </ul>
+        </Balloon>
+      )
+    }
     return (
-      <Balloon showOnHover trigger={userMenuBalloonTrigger}>
-        <div>
-          <Button
-            shadow
-            href={loginUrl}
-            className="navigation__user-menu-log-in-button"
-          >
-            Log in to <span className="navigation__user-menu-the-economist-name">The Economist</span>
-          </Button>
-          <span className="navigation__user-menu-register">
-            New to <span className="navigation__user-menu-the-economist-name">The Economist</span>?
-            <a
-              className="navigation__user-menu-register-link"
-              href={registerUrl}
-            >Register now</a>
-          </span>
-        </div>
+      <Balloon showOnHover trigger={userMenuBalloonTrigger} className="navigation__user-menu-popup--anonymous">
+        <Button href={buttonUrl} className="navigation__user-menu-log-in-button">
+          Log in to <span className="navigation__user-menu-the-economist-name">The Economist</span>
+        </Button>
+        <ul className="navigation__user-menu-linklist">
+          <li className="navigation__user-menu-linklist-item">
+            New to <span className="navigation__user-menu-the-economist-name">The Economist</span>?&nbsp;
+            <a className="navigation__user-menu-linklist-link--cta" href={registerUrl}>
+              Register now
+            </a>
+          </li>
+          <li className="navigation__user-menu-linklist-item">
+            <a className="navigation__user-menu-linklist-link--cta" href="/user">
+              Manage my subscription
+            </a>
+          </li>
+        </ul>
       </Balloon>
     );
   }
