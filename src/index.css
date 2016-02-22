@@ -1,0 +1,121 @@
+@import '@economist/component-icon';
+@import '@economist/component-balloon';
+@import './settings';
+@import './user-menu';
+@import './search';
+@import './mobile-menu';
+@import './main-navigation';
+@import '@economist/component-subscribe-message';
+@import '@economist/component-typography';
+@import '@economist/component-icon/backgrounds/headset.css';
+@import '@economist/component-icon/backgrounds/video.css';
+@import '@economist/component-icon/backgrounds/film.css';
+@import '@economist/component-icon/backgrounds/magnifier.css';
+@import '@economist/component-icon/backgrounds/user.css';
+@import '@economist/component-icon/backgrounds/close.css';
+
+.navigation {
+  font-family: var(--fontfamily-sans);
+  font-size: 1rem;
+  z-index: 10000000;
+}
+
+/* stylelint-disable */
+.navigation .navigation__main-navigation-link,
+.navigation .navigation__main-navigation-link > a {
+/* stylelint-enable */
+  box-sizing: border-box;
+  height: var(--navigation__default-height);
+  text-decoration: none;
+}
+
+/* stylelint-disable */
+.navigation a:hover {
+/* stylelint-enable */
+  cursor: pointer;
+}
+
+.navigation__primary {
+  width: 100%;
+  height: var(--navigation__default-height);
+  line-height: 1em;
+  background: var(--color-kiev);
+  z-index: 2;
+}
+
+.navigation__primary-inner {
+  display: flex;
+  position: relative;
+  height: var(--navigation__default-height);
+}
+
+/* stylelint-disable */
+.navigation__primary-inner > * {
+/* stylelint-enable */
+  /* Required by older version of Safari */
+  /* stylelint-disable */
+  display: -webkit-box;
+  /* stylelint-enable */
+  /* Required by IE */
+  flex: 1 0 auto;
+}
+
+.navigation__primary-expander {
+  width: 100%;
+  flex: 0 1 auto;
+}
+
+.navigation__secondary-inner {
+  text-align: right;
+  background: var(--color-berlin);
+}
+
+.navigation__main-sections-card .balloon {
+  position: static;
+}
+
+@media (--navigation-mobile-up) {
+  .navigation__link-logo {
+    min-width: 128px;
+  }
+}
+
+.navigation__link-logo {
+  height: var(--navigation__default-height);
+}
+
+.navigation__link-empty-logo {
+  display: none;
+  width: 1em;
+  height: 100%;
+  background: var(--color-economist);
+}
+
+.navigation__primary .navigation__main-sections-card .balloon--content {
+  /* Stop this from being taller than screen */
+  overflow-y: auto;
+  max-height: calc(100vh - var(--navigation__default-height));
+}
+
+@media (--navigation-mobile-down) {
+  .navigation__link-logo .Icon-economist {
+    display: none;
+  }
+  .navigation__link-empty-logo {
+    display: block;
+  }
+}
+
+@media (--navigation-mobile-up) {
+  .navigation__sections-link:hover,
+  .navigation__link:hover {
+    filter: grayscale(100%) brightness(5) brightness(80%);
+  }
+
+  /* stylelint-disable */
+  .navigation__user-menu:hover use,
+  .navigation__search:hover svg {
+  /* stylelint-enable */
+    fill: var(--navigation__default-hover-color, var(--color-london));
+  }
+}

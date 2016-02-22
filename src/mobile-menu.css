@@ -1,19 +1,23 @@
-@import "./settings";
-@import "@economist/component-typography";
-@import "@economist/component-accordion";
-@import "@economist/component-accordion/styles.css";
-@import "@economist/component-icon/backgrounds/video.css";
-@import "@economist/component-icon/backgrounds/headset.css";
-@import "@economist/component-icon/backgrounds/film.css";
+@import './settings';
+@import '@economist/component-typography';
+@import '@economist/component-accordion';
+@import '@economist/component-accordion/styles.css';
+@import '@economist/component-icon/backgrounds/video.css';
+@import '@economist/component-icon/backgrounds/headset.css';
+@import '@economist/component-icon/backgrounds/film.css';
 
 .navigation__main-navigation-link.navigation__mobile-accordion {
+  /* stylelint-disable */
   display: none !important;
+  /* stylelint-enable */
   padding: 0;
 }
 
 @media (--navigation-mobile-down) {
   .navigation__mobile-accordion.navigation__main-navigation-link {
+    /* stylelint-disable */
     display: flex !important;
+    /* stylelint-enable */
   }
 }
 
@@ -21,29 +25,34 @@
   padding: 0 2em;
 }
 
+/* stylelint-disable */
 .navigation__mobile-accordion.accordionExpander--not-visible .balloon-content {
+/* stylelint-enable */
   display: none;
 }
 
 .navigation__mobile-accordion  .balloon-content {
-  left: 0 !important;
   top: 100%;
+  /* stylelint-disable */
+  left: 0 !important;
+  /* stylelint-enable */
 }
 
 .navigation__mobile-accordion .navigation__sections-link {
   display: flex;
   align-items: center;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
   outline: 0;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 /* Sticky navigation not allowed to scroll submenus
 if their container is deeper than the viewport so we
 need to have a fixed height */
+
 .navigation__mobile-accordion .balloon-content {
-  padding: 0;
-  max-height: calc(100vh - var(--navigation__default-height));
   overflow-y: auto;
+  max-height: calc(100vh - var(--navigation__default-height));
+  padding: 0;
 }
 
 .navigation__mobile-accordion .Icon {
@@ -73,14 +82,18 @@ need to have a fixed height */
   padding: 1em;
 }
 
+/* stylelint-disable */
 .navigation__mobile-accordion .Icon-down svg,
 .navigation__mobile-accordion .Icon-up svg {
+  /* stylelint-enable */
   fill: var(--color-beijing);
 }
 
+/* stylelint-disable */
 .navigation__mobile-accordion .link-button--icon:not(.accordionExpander__link) {
-  background-size: 2em;
+/* stylelint-enable */
   background-position: 1em 50%;
+  background-size: 2em;
 }
 
 .navigation__mobile-accordion .link-button--icon-background {
@@ -88,16 +101,17 @@ need to have a fixed height */
 }
 
 /* Workaround to fix the no-baseline aligment of the font */
-.navigation__mobile-accordion .link-button--icon-background:before {
+
+.navigation__mobile-accordion .link-button--icon-background::before {
+  content: '';
   display: block;
   height: 0.28em;
-  content: '';
 }
 
 .navigation__mobile-accordion .link-button--styled {
-  color: var(--color-thimphu);
   margin: 1em;
-  padding: .5em;
-  text-align: center;
+  padding: 0.5em;
+  color: var(--color-thimphu);
   font-weight: normal;
+  text-align: center;
 }

@@ -1,61 +1,72 @@
-import React from 'react';
-import Icon from '@economist/component-icon';
-import StickyPosition from 'react-sticky-position';
+import Accordion from '@economist/component-accordion';
 import AutoHide from './autohide';
+import Balloon from '@economist/component-balloon';
 import Button from '@economist/component-link-button';
 import GoogleSearch from '@economist/component-google-search';
-import Balloon from '@economist/component-balloon';
+import Icon from '@economist/component-icon';
+import React from 'react';
 import SectionsCard from '@economist/component-sections-card';
-import Accordion from '@economist/component-accordion';
+import StickyPosition from 'react-sticky-position';
 import classnames from 'classnames';
 
 export default class Navigation extends React.Component {
 
-  static get propTypes() {
-    return {
-      className: React.PropTypes.string,
-      children: React.PropTypes.oneOfType([
-        React.PropTypes.arrayOf(React.PropTypes.element),
-        React.PropTypes.element,
-      ]),
-      links: React.PropTypes.arrayOf(React.PropTypes.object),
-      penName: React.PropTypes.string,
-      logoutDestination: React.PropTypes.string,
-      autohide: React.PropTypes.bool,
-      svgUri: React.PropTypes.string,
-      userLoggedIn: React.PropTypes.bool,
-      userIsSubscriber: React.PropTypes.bool,
-      currentUrl: React.PropTypes.string,
-      sharedMenu: React.PropTypes.object.isRequired,
-      sectionsCardData: React.PropTypes.object.isRequired,
-      accordionData: React.PropTypes.array.isRequired,
-    };
+  static propTypes = {
+    className: React.PropTypes.string,
+    children: React.PropTypes.oneOfType([
+      React.PropTypes.arrayOf(React.PropTypes.element),
+      React.PropTypes.element,
+    ]),
+    links: React.PropTypes.arrayOf(React.PropTypes.object),
+    penName: React.PropTypes.string,
+    autohide: React.PropTypes.bool,
+    svgUri: React.PropTypes.string,
+    userLoggedIn: React.PropTypes.bool,
+    userIsSubscriber: React.PropTypes.bool,
+    currentUrl: React.PropTypes.string,
+    sharedMenu: React.PropTypes.shape({
+      topic: React.PropTypes.shape({
+        title: React.PropTypes.string,
+        href: React.PropTypes.string,
+      }),
+      more: React.PropTypes.shape({
+        title: React.PropTypes.string,
+        href: React.PropTypes.string,
+      }),
+      subscribe: React.PropTypes.shape({
+        title: React.PropTypes.string,
+        href: React.PropTypes.string,
+      }),
+    }).isRequired,
+    sectionsCardData: SectionsCard.propTypes.data,
+    accordionData: Accordion.propTypes.list,
   }
 
   static defaultProps = {
     autohide: true,
     penName: 'guest-olejses',
-    logoutDestination: '',
   }
 
   constructor(props) {
     super(props);
+    this.closeSearchBar = this.closeSearchBar.bind(this);
+    this.openSearchBar = this.openSearchBar.bind(this);
     this.state = {
       searching: false,
     };
   }
 
   renderLoginLogout() {
-    const { currentUrl, userLoggedIn, userIsSubscriber, penName, logoutDestination } = this.props;
-    const destinationParameter = currentUrl ? `?destination=${encodeURIComponent(currentUrl)}` : '';
-    const buttonUrl = userLoggedIn ? `/logout${destinationParameter}` : `/user/login${destinationParameter}`;
+    const { currentUrl, userLoggedIn, userIsSubscriber, penName } = this.props;
+    const destinationParameter = currentUrl ? `?destination=${ encodeURIComponent(currentUrl) }` : '';
+    const loginLogoutUrl = userLoggedIn ? `/logout${ destinationParameter }` : `/user/login${ destinationParameter }`;
     const buttonClassSuffix = userLoggedIn ? 'login' : 'logout';
-    const buttonText = userLoggedIn ? `My Account` : `Log in`;
-    const registerUrl = `/user/register${destinationParameter}`;
+    const buttonText = userLoggedIn ? 'My Account' : 'Log in';
+    const registerUrl = `/user/register${ destinationParameter }`;
     const userMenuBalloonTrigger = (
       <Button
-        href={buttonUrl}
-        className={`navigation__user-menu-link navigation__user-menu-link--${buttonClassSuffix}`}
+        href={loginLogoutUrl}
+        className={`navigation__user-menu-link navigation__user-menu-link--${ buttonClassSuffix }`}
         icon={{ icon: 'user', color: 'thimphu', useBackground: true }}
         unstyled
       >{buttonText}</Button>
@@ -97,14 +108,14 @@ export default class Navigation extends React.Component {
             <li className="navigation__user-menu-linklist-item">
               <a
                 className="navigation__user-menu-linklist-link--cta"
-                href={`/logout?destination=${ logoutDestination }`}
+                href={loginLogoutUrl}
               >
                 Log out
               </a>
             </li>
           </ul>
         </Balloon>
-      )
+      );
     }
     if (userLoggedIn) {
       return (
@@ -143,18 +154,18 @@ export default class Navigation extends React.Component {
             <li className="navigation__user-menu-linklist-item">
               <a
                 className="navigation__user-menu-linklist-link--cta"
-                href={`/logout?destination=${ logoutDestination }`}
+                href={loginLogoutUrl}
               >
                 Log out
               </a>
             </li>
           </ul>
         </Balloon>
-      )
+      );
     }
     return (
       <Balloon showOnHover trigger={userMenuBalloonTrigger} className="navigation__user-menu-popup--anonymous">
-        <Button href={buttonUrl} className="navigation__user-menu-log-in-button">
+        <Button href={loginLogoutUrl} className="navigation__user-menu-log-in-button">
           Log in to <span className="navigation__user-menu-the-economist-name">The Economist</span>
         </Button>
         <ul className="navigation__user-menu-linklist">
@@ -175,6 +186,7 @@ export default class Navigation extends React.Component {
   }
 
   renderSearch(searching) {
+    /* eslint-disable react/jsx-handler-names */
     if (searching) {
       return (
         <div className="navigation__search--open">
@@ -215,13 +227,14 @@ export default class Navigation extends React.Component {
         </div>
       </div>
     );
+    /* eslint-enable react/jsx-handler-names */
   }
 
-  closeSearchBar = () => {
+  closeSearchBar() {
     this.setState({ searching: false });
   }
 
-  openSearchBar = (event) => {
+  openSearchBar(event) {
     event.stopPropagation();
     event.preventDefault();
     this.setState({ searching: true });
@@ -291,7 +304,6 @@ export default class Navigation extends React.Component {
         </div>
       </div>
     ) ];
-
     if (this.props.autohide) {
       children.push(
         <AutoHide className="navigation__secondary" key="secondary-autohide">

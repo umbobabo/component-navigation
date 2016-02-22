@@ -1,45 +1,45 @@
-@import "@economist/component-link-button";
-@import "settings";
+@import '@economist/component-link-button';
+@import 'settings';
 
 .navigation__user-menu {
-  font-size: var(--navigation__user-menu-link__font-size, var(--navigation-text-size));
-  font-family: inherit;
   display: flex;
-  align-items: stretch;
   padding: 0 var(--navigation__default-menus-padding, var(--main-navigation-link-padding));
+  align-items: stretch;
+  font-family: inherit;
+  font-size: var(--navigation__user-menu-link__font-size, var(--navigation-text-size));
 }
 
 .navigation__user-menu .icon--user-thimphu {
-  background-size: 24px 24px;
   padding-left: 30px;
   background-position: left center;
+  background-size: 24px 24px;
 }
 
 .navigation__user-menu-link {
-  color: var(--color-thimphu);
-  text-decoration: none;
   display: flex;
   align-items: center;
+  color: var(--color-thimphu);
+  text-decoration: none;
 }
 
 .navigation__user-menu-link--logout,
 .navigation__user-menu-link--login {
+  outline: 0;
   color: var(--navigation-user-menu-color, var(--color-thimphu));
   font-size: var(--navigation-user-menu-font-size, var(--navigation-text-size));
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
-  outline: 0;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .navigation__user-menu .balloon__link,
 .navigation__user-menu-link--logout {
-  white-space: nowrap;
   height: var(--navigation__default-height);
+  white-space: nowrap;
 }
 
 .navigation__user-menu .balloon-content {
-  font-size: 0.8em;
   right: -100px;
   padding: 2em 2em 1.5em 2em;
+  font-size: 0.8em;
   line-height: initial;
   text-align: center;
 }
@@ -49,18 +49,18 @@
 }
 
 .navigation__user-menu-log-in-button {
-  margin: 0 auto 2em;
   clear: both;
   display: block;
-  text-align: center;
+  margin: 0 auto 2em;
   font-weight: bold;
+  text-align: center;
   background: var(--navigation__user-menu-background-color, var(--color-chicago));
 }
 
 .navigation__user-menu-linklist {
-  list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .navigation__user-menu-linklist-item {
@@ -100,9 +100,11 @@
   z-index: 2;
 }
 
-@media (width<=1000px) {
+@media (width <= 1000px) {
   .navigation__user-menu .balloon-content {
+    /* stylelint-disable */
     right: -40px !important;
+    /* stylelint-enable */
   }
 }
 
