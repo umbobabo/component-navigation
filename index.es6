@@ -7,6 +7,7 @@ import GoogleSearch from '@economist/component-google-search';
 import Balloon from '@economist/component-balloon';
 import SectionsCard from '@economist/component-sections-card';
 import Accordion from '@economist/component-accordion';
+import classnames from 'classnames';
 
 export default class Navigation extends React.Component {
 
@@ -31,11 +32,16 @@ export default class Navigation extends React.Component {
     };
   }
 
-  static get defaultProps() {
-    return {
-      autohide: true,
-      penName: 'guest-olejses',
-      logoutDestination: '',
+  static defaultProps = {
+    autohide: true,
+    penName: 'guest-olejses',
+    logoutDestination: '',
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      searching: false,
     };
   }
 
@@ -50,7 +56,7 @@ export default class Navigation extends React.Component {
       <Button
         href={buttonUrl}
         className={`navigation__user-menu-link navigation__user-menu-link--${buttonClassSuffix}`}
-        icon={{ icon: 'user', size: '28px' }}
+        icon={{ icon: 'user', color: 'thimphu', useBackground: true }}
         unstyled
       >{buttonText}</Button>
     );
@@ -168,21 +174,80 @@ export default class Navigation extends React.Component {
     );
   }
 
+  renderSearch(searching) {
+    if (searching) {
+      return (
+        <div className="navigation__search--open">
+          <div className="navigation__search-magnifier">
+            <Icon icon="magnifier" size="28px" />
+          </div>
+          <GoogleSearch />
+          <div className="navigation__search-close-button-wrapper">
+            <Button
+              unstyled
+              className="navigation__link navigation__search-close-button"
+              icon={{ icon: 'close', color: 'thimphu', useBackground: true }}
+              onClick={this.closeSearchBar}
+            />
+          </div>
+        </div>
+      );
+    }
+    return (
+      <div className="navigation__search--closed">
+        <div className="navigation__show-field-group">
+          <Button
+            unstyled
+            icon={{ icon: 'magnifier', size: '28px' }}
+            className="navigation__link navigation__collapsed-magnifier"
+            href="http://www.economist.com/search/"
+            onClick={this.openSearchBar}
+          />
+          <Button
+            unstyled
+            icon={{ icon: 'magnifier', color: 'thimphu', useBackground: true }}
+            className="navigation__link navigation__search-open-button"
+            href="http://www.economist.com/search/"
+            onClick={this.openSearchBar}
+          >
+            Search
+          </Button>
+        </div>
+      </div>
+    );
+  }
+
+  closeSearchBar = () => {
+    this.setState({ searching: false });
+  }
+
+  openSearchBar = (event) => {
+    event.stopPropagation();
+    event.preventDefault();
+    this.setState({ searching: true });
+    return false;
+  }
+
   render() {
+    const { searching } = this.state;
     const svgUri = { uri: this.props.svgUri } || {};
-    const menuAccordionTrigger = (<a href="/Sections" className="navigation__sections-link navigation--tappable-icon">
-      <Icon icon="hamburger" size="28px" color="white" />
-      <Icon icon="close" size="28px" color="white" />
-    </a>);
-    const menuSectionsTrigger = (<a href={this.props.sharedMenu.topic.href} className="navigation__sections-link">
-      {this.props.sharedMenu.topic.title}
-    </a>);
-    const primaryNavigation = (
+    const menuAccordionTrigger = (
+      <a href="/Sections" className="navigation__sections-link navigation--tappable-icon">
+        <Icon icon="hamburger" size="28px" color="white" />
+        <Icon icon="close" size="28px" color="white" />
+      </a>
+    );
+    const menuSectionsTrigger = (
+      <a href={this.props.sharedMenu.topic.href} className="navigation__sections-link">
+        {this.props.sharedMenu.topic.title}
+      </a>
+    );
+    const children = [ (
       <div className="navigation__primary" key="primary-navigation">
         <div className="navigation__primary-inner">
           <a href="http://www.economist.com" className="navigation__link-logo">
             <Icon icon="economist" size="64px" {...svgUri}/>
-            <div className="navigation__link-empty-logo"></div>
+            <div className="navigation__link-empty-logo" />
           </a>
           <Balloon
             className="navigation__main-navigation-link navigation__mobile-accordion"
@@ -199,15 +264,15 @@ export default class Navigation extends React.Component {
               <SectionsCard data={this.props.sectionsCardData}/>
             </div>
           </Balloon>
-          <a href="/printedition" className="navigation__main-navigation-link">
+          <a href="/printedition" className="navigation__main-navigation-link navigation__link">
             Print edition
           </a>
-          <a href={this.props.sharedMenu.more.href} className="navigation__main-navigation-link">
+          <a href={this.props.sharedMenu.more.href} className="navigation__main-navigation-link navigation__link">
             {this.props.sharedMenu.more.title}
           </a>
-          <div className="navigation__primary-expander"></div>
+          <div className="navigation__primary-expander" />
           <Button href={this.props.sharedMenu.subscribe.href}
-            className="navigation__main-navigation-link navigation__main-navigation-link-subscribe"
+            className="navigation__main-navigation-link navigation__link navigation__main-navigation-link-subscribe"
             target="_blank"
             i13nModel={{
               action: 'click',
@@ -221,27 +286,29 @@ export default class Navigation extends React.Component {
             {this.renderLoginLogout()}
           </div>
           <div className="navigation__search">
-            <GoogleSearch/>
+            {this.renderSearch(searching)}
           </div>
         </div>
       </div>
-    );
-    const children = [ primaryNavigation ];
-    let autohide = '';
-    let bottomBar = '';
+    ) ];
+
     if (this.props.autohide) {
-      autohide = ' navigation--autohide';
-      bottomBar = (<AutoHide className="navigation__secondary" key="secondary-autohide">
+      children.push(
+        <AutoHide className="navigation__secondary" key="secondary-autohide">
           {this.props.children}
-        </AutoHide>);
+        </AutoHide>
+      );
     } else {
-      bottomBar = (<div className="navigation__secondary" key="secondary">
+      children.push(
+        <div className="navigation__secondary" key="secondary">
           {this.props.children}
-        </div>);
+        </div>
+      );
     }
-    children.push(bottomBar);
     return (
-      <StickyPosition className={`${this.props.className} ${autohide}`}>
+      <StickyPosition
+        className={classnames(this.props.className, { 'navigation--autohide': this.props.autohide })}
+      >
          {children}
       </StickyPosition>
     );
