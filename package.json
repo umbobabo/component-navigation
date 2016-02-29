@@ -123,8 +123,8 @@
   "dependencies": {
     "@economist/component-accordion": "^4.0.2",
     "@economist/component-balloon": "^2.0.2",
-    "@economist/component-google-search": "^2.0.0",
-    "@economist/component-icon": "^5.2.1",
+    "@economist/component-google-search": "^3.0.0",
+    "@economist/component-icon": "^5.9.1",
     "@economist/component-link-button": "^2.0.0",
     "@economist/component-sections-card": "^3.0.0",
     "@economist/component-subscribe-message": "^1.2.0",
