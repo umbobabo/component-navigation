@@ -1,14 +1,13 @@
-if (typeof document === 'object') {
-  require('svg4everybody')();
-}
-
-import Navigation from './index';
+import Navigation from './';
 import React from 'react';
-// Get data.
-import context from '@economist/component-sections-card/context';
+import navgiationLinks from '@economist/component-sections-card/context';
+import svgForEverybody from 'svg4everybody';
 /* eslint-disable id-match */
 // Force media links to use icon as background.
-context.media.forEach((mediaLink) => {
+if (typeof document === 'object') {
+  svgForEverybody();
+}
+navgiationLinks.media.forEach((mediaLink) => {
   mediaLink.icon = {
     useBackground: true,
     color: 'chicago',
@@ -34,14 +33,14 @@ const accordionContext = [
   {
     title: sharedMenu.topic.title,
     href: sharedMenu.topic.href,
-    children: context.sections,
+    children: navgiationLinks.sections,
   },
   {
     title: 'Blogs',
     href: '/blogs',
-    children: context.blogs,
+    children: navgiationLinks.blogs,
   },
-  ...context.media,
+  ...navgiationLinks.media,
   {
     title: 'Print Edition',
     href: '/printedition',
@@ -67,7 +66,7 @@ export default (
         <Navigation className="navigation navigation--registered navigation--sticked"
           svgUri="assets/icons.svg"
           autohide={false}
-          sectionsCardData={context}
+          sectionsCardData={navgiationLinks}
           accordionData={accordionContext}
           sharedMenu={sharedMenu}
         />
@@ -80,7 +79,7 @@ export default (
         svgUri="assets/icons.svg"
         userLoggedIn
         autohide={false}
-        sectionsCardData={context}
+        sectionsCardData={navgiationLinks}
         accordionData={accordionContext}
         sharedMenu={sharedMenu}
       />
@@ -94,7 +93,7 @@ export default (
         userLoggedIn
         userIsSubscriber
         autohide={false}
-        sectionsCardData={context}
+        sectionsCardData={navgiationLinks}
         accordionData={accordionContext}
         sharedMenu={sharedMenu}
       />

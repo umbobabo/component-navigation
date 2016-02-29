@@ -1,0 +1,17 @@
+@import '@economist/component-typography';
+@import '@economist/component-palette';
+@import '@economist/component-grid';
+@import '@economist/component-icon';
+@import 'sticked.css';
+@import 'autohide.css';
+@import 'index.css';
+
+/* stylelint-disable */
+#component-preview {
+/* stylelint-enable */
+  background: #fff;
+}
+
+.component-panel {
+  overflow: hidden;
+}
