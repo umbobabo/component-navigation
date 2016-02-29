@@ -259,14 +259,14 @@ export default class Navigation extends React.Component {
       <div className="navigation__primary" key="primary-navigation">
         <div className="navigation__primary-inner">
           <a href="http://www.economist.com" className="navigation__link-logo">
-            <Icon icon="economist" size="64px" {...svgUri}/>
+            <Icon icon="economist" size="64px" {...svgUri} />
             <div className="navigation__link-empty-logo" />
           </a>
           <Balloon
             className="navigation__main-navigation-link navigation__mobile-accordion"
             trigger={menuAccordionTrigger}
           >
-            <Accordion list={this.props.accordionData}/>
+            <Accordion list={this.props.accordionData} />
           </Balloon>
           <Balloon
             className="navigation__main-navigation-link navigation__main-sections-card"
@@ -274,7 +274,7 @@ export default class Navigation extends React.Component {
             trigger={menuSectionsTrigger}
           >
             <div>
-              <SectionsCard data={this.props.sectionsCardData}/>
+              <SectionsCard data={this.props.sectionsCardData} />
             </div>
           </Balloon>
           <a href="/printedition" className="navigation__main-navigation-link navigation__link">
