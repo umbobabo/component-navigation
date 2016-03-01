@@ -27,6 +27,9 @@
 
 .navigation__sections-link {
   position: relative;
+  height: 100%;
+  color: var(--color-thimphu);
+  text-decoration: none;
 }
 
 .navigation__main-navigation-link-subscribe {
@@ -35,6 +38,7 @@
 
 .navigation__main-navigation-link .balloon-content {
   right: 0;
+  left: 0;
 }
 
 .navigation__main-sections-card .balloon-content {

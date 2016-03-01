@@ -6,10 +6,10 @@ import chaiReactElement from 'chai-react-element';
 import links from './links';
 chai.use(chaiReactElement).should();
 // Get data.
-import navgiationLinks from '@economist/component-sections-card/context';
+import navigationLinks from '@economist/component-sections-card/lib/context';
 /* eslint-disable id-match */
 // Force media links to use icon as background.
-navgiationLinks.media.forEach((mediaLink) => {
+navigationLinks.media.forEach((mediaLink) => {
   mediaLink.icon = {
     useBackground: true,
     color: 'chicago',

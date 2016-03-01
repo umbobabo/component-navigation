@@ -1,7 +1,7 @@
 @import './settings';
 @import '@economist/component-typography';
-@import '@economist/component-accordion';
-@import '@economist/component-accordion/styles.css';
+@import '@economist/component-accordion/lib';
+@import '@economist/component-accordion/lib/styles.css';
 @import '@economist/component-icon/backgrounds/video.css';
 @import '@economist/component-icon/backgrounds/headset.css';
 @import '@economist/component-icon/backgrounds/film.css';
@@ -23,6 +23,14 @@
 
 .navigation--tappable-icon {
   padding: 0 2em;
+}
+
+.accordion__hr {
+  height: 0;
+  margin-right: 2em;
+  margin-left: 2em;
+  border: solid var(--color-london);
+  border-width: 1px 0 0;
 }
 
 /* stylelint-disable */

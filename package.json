@@ -121,12 +121,12 @@
     ]
   },
   "dependencies": {
-    "@economist/component-accordion": "^4.0.2",
-    "@economist/component-balloon": "^2.0.2",
+    "@economist/component-accordion": "4.1.0",
+    "@economist/component-balloon": "^2.2.0",
     "@economist/component-google-search": "^3.0.0",
-    "@economist/component-icon": "^5.9.1",
+    "@economist/component-icon": "^5.10.0",
     "@economist/component-link-button": "^2.0.0",
-    "@economist/component-sections-card": "^3.0.0",
+    "@economist/component-sections-card": "^3.1.0",
     "babel-runtime": "^6.3.19",
     "classnames": "^2.2.3",
     "lodash.throttle": "^4.0.1",
