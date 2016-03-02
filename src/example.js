@@ -66,7 +66,6 @@ export default (
     <div>
         <Navigation className="navigation navigation--registered navigation--sticked"
           svgUri="assets/icons.svg"
-          autohide={false}
           sectionsCardData={navgiationLinks}
           accordionData={accordionContext}
           sharedMenu={sharedMenu}
@@ -79,7 +78,6 @@ export default (
       <Navigation className="navigation navigation--registered navigation--sticked"
         svgUri="assets/icons.svg"
         userLoggedIn
-        autohide={false}
         sectionsCardData={navgiationLinks}
         accordionData={accordionContext}
         sharedMenu={sharedMenu}
@@ -93,7 +91,6 @@ export default (
         svgUri="assets/icons.svg"
         userLoggedIn
         userIsSubscriber
-        autohide={false}
         sectionsCardData={navgiationLinks}
         accordionData={accordionContext}
         sharedMenu={sharedMenu}
