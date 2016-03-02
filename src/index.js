@@ -1,5 +1,4 @@
 import Accordion from '@economist/component-accordion';
-import AutoHide from './autohide';
 import Balloon from '@economist/component-balloon';
 import Button from '@economist/component-link-button';
 import GoogleSearch from '@economist/component-google-search';
@@ -7,7 +6,6 @@ import Icon from '@economist/component-icon';
 import React from 'react';
 import SectionsCard from '@economist/component-sections-card';
 import StickyPosition from 'react-sticky-position';
-import classnames from 'classnames';
 
 export default class Navigation extends React.Component {
 
@@ -19,7 +17,6 @@ export default class Navigation extends React.Component {
     ]),
     links: React.PropTypes.arrayOf(React.PropTypes.object),
     penName: React.PropTypes.string,
-    autohide: React.PropTypes.bool,
     svgUri: React.PropTypes.string,
     userLoggedIn: React.PropTypes.bool,
     userIsSubscriber: React.PropTypes.bool,
@@ -43,7 +40,6 @@ export default class Navigation extends React.Component {
   }
 
   static defaultProps = {
-    autohide: true,
     penName: 'guest-olejses',
   }
 
@@ -304,13 +300,7 @@ export default class Navigation extends React.Component {
         </div>
       </div>
     ) ];
-    if (this.props.autohide) {
-      children.push(
-        <AutoHide className="navigation__secondary" key="secondary-autohide">
-          {this.props.children}
-        </AutoHide>
-      );
-    } else {
+    if (this.props.children) {
       children.push(
         <div className="navigation__secondary" key="secondary">
           {this.props.children}
@@ -318,10 +308,8 @@ export default class Navigation extends React.Component {
       );
     }
     return (
-      <StickyPosition
-        className={classnames(this.props.className, { 'navigation--autohide': this.props.autohide })}
-      >
-         {children}
+      <StickyPosition className={this.props.className}>
+        {children}
       </StickyPosition>
     );
   }
