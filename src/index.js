@@ -3,6 +3,8 @@ import Balloon from '@economist/component-balloon';
 import Button from '@economist/component-link-button';
 import GoogleSearch from '@economist/component-google-search';
 import Icon from '@economist/component-icon';
+import MenuMore from './parts/menu-more';
+import MenuTopic from './parts/menu-topic';
 import React from 'react';
 import SectionsCard from '@economist/component-sections-card';
 import StickyPosition from 'react-sticky-position';
@@ -37,6 +39,7 @@ export default class Navigation extends React.Component {
     }).isRequired,
     sectionsCardData: SectionsCard.propTypes.data,
     accordionData: Accordion.propTypes.list,
+    moreBalloonData: SectionsCard.propTypes.data,
   }
 
   static defaultProps = {
@@ -62,7 +65,7 @@ export default class Navigation extends React.Component {
     const userMenuBalloonTrigger = (
       <Button
         href={loginLogoutUrl}
-        className={`navigation__user-menu-link navigation__user-menu-link--${ buttonClassSuffix }`}
+        className={`navigation__user-menu-link navigation__link navigation__user-menu-link--${ buttonClassSuffix }`}
         icon={{ icon: 'user', color: 'thimphu', useBackground: true }}
         unstyled
       >{buttonText}</Button>
@@ -240,15 +243,11 @@ export default class Navigation extends React.Component {
   render() {
     const { searching } = this.state;
     const svgUri = { uri: this.props.svgUri } || {};
+
     const menuAccordionTrigger = (
       <a href="/Sections" className="navigation__sections-link navigation--tappable-icon">
         <Icon icon="hamburger" size="28px" color="white" />
         <Icon icon="close" size="28px" color="white" />
-      </a>
-    );
-    const menuSectionsTrigger = (
-      <a href={this.props.sharedMenu.topic.href} className="navigation__sections-link">
-        {this.props.sharedMenu.topic.title}
       </a>
     );
     const children = [ (
@@ -264,21 +263,19 @@ export default class Navigation extends React.Component {
           >
             <Accordion list={this.props.accordionData} />
           </Balloon>
-          <Balloon
-            className="navigation__main-navigation-link navigation__main-sections-card"
-            showOnHover
-            trigger={menuSectionsTrigger}
-          >
-            <div>
-              <SectionsCard data={this.props.sectionsCardData} />
-            </div>
-          </Balloon>
+          <MenuTopic
+            href={this.props.sharedMenu.topic.href}
+            sectionsCardData={this.props.sectionsCardData}
+            title={this.props.sharedMenu.topic.title}
+          />
           <a href="/printedition" className="navigation__main-navigation-link navigation__link">
             Print edition
           </a>
-          <a href={this.props.sharedMenu.more.href} className="navigation__main-navigation-link navigation__link">
-            {this.props.sharedMenu.more.title}
-          </a>
+          <MenuMore
+            moreBalloonData={this.props.moreBalloonData}
+            href={this.props.sharedMenu.more.href}
+            title={this.props.sharedMenu.more.title}
+          />
           <div className="navigation__primary-expander" />
           <Button href={this.props.sharedMenu.subscribe.href}
             className="navigation__main-navigation-link navigation__link navigation__main-navigation-link-subscribe"

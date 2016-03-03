@@ -1,17 +1,19 @@
-@import '@economist/component-icon';
 @import '@economist/component-balloon';
+@import '@economist/component-icon';
 @import './settings';
 @import './user-menu';
 @import './search';
 @import './mobile-menu';
 @import './main-navigation';
 @import '@economist/component-typography';
-@import '@economist/component-icon/backgrounds/headset.css';
-@import '@economist/component-icon/backgrounds/video.css';
-@import '@economist/component-icon/backgrounds/film.css';
-@import '@economist/component-icon/backgrounds/magnifier.css';
-@import '@economist/component-icon/backgrounds/user.css';
+@import '@economist/component-icon/backgrounds/apps.css';
 @import '@economist/component-icon/backgrounds/close.css';
+@import '@economist/component-icon/backgrounds/film.css';
+@import '@economist/component-icon/backgrounds/headset.css';
+@import '@economist/component-icon/backgrounds/magnifier.css';
+@import '@economist/component-icon/backgrounds/radio.css';
+@import '@economist/component-icon/backgrounds/user.css';
+@import '@economist/component-icon/backgrounds/video.css';
 
 .navigation {
   font-family: var(--fontfamily-sans);
@@ -22,10 +24,24 @@
 /* stylelint-disable */
 .navigation .navigation__main-navigation-link,
 .navigation .navigation__main-navigation-link > a {
-/* stylelint-enable */
   box-sizing: border-box;
   height: var(--navigation__default-height);
   text-decoration: none;
+}
+
+.navigation .navigation__main-navigation-link > span {
+  display: inline-block;
+  height: 100%;
+}
+/* stylelint-enable */
+
+.navigation__more .list {
+  column-count: 1;
+}
+
+.navigation__more .sections-card__list-sections,
+.navigation__more .sections-card__list-blogs {
+  max-width: 40%;
 }
 
 /* stylelint-disable */

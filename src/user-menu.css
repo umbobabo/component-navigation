@@ -31,7 +31,8 @@
 }
 
 .navigation__user-menu .balloon__link,
-.navigation__user-menu-link--logout {
+.navigation__user-menu-link--logout,
+.navigation__user-menu-link--login {
   height: var(--navigation__default-height);
   white-space: nowrap;
 }
