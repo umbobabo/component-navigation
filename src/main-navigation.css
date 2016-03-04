@@ -70,19 +70,29 @@
   align-items: center;
 }
 
-/* IE9 Flexbox fallback */
-
 .navigation__primary {
   display: table;
+  width: 100%;
+  height: var(--navigation__default-height);
+  line-height: 1em;
+  background: var(--color-kiev);
+  z-index: 2;
 }
+
+/* stylelint-disable rule-no-duplicate-properties, selector-no-universal */
 
 .navigation__primary-inner {
   display: table-row;
+  display: flex;
+  position: relative;
+  height: var(--navigation__default-height);
 }
 
-/* stylelint-disable */
 .navigation__primary-inner > * {
-  /* stylelint-enable */
-  display: table-cell;
+  display: table-cell; /* IE9 Flexbox fallback */
+  display: flex;
   vertical-align: middle;
+  /* Required by IE */
+  flex: 1 0 auto;
 }
+/* stylelint-enable */
