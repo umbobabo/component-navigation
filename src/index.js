@@ -95,12 +95,12 @@ export default class Navigation extends React.Component {
               </a>
             </li>
             <li className="navigation__user-menu-linklist-item">
-              <a className="navigation__user-menu-linklist-link" href={`/users/${ penName }/newsletters`}>
+              <a className="navigation__user-menu-linklist-link" href={`/user/${ penName }/newsletters`}>
                 Newsletters
               </a>
             </li>
             <li className="navigation__user-menu-linklist-item">
-              <a className="navigation__user-menu-linklist-link" href={`/users/${ penName }/comments`}>
+              <a className="navigation__user-menu-linklist-link" href={`/user/${ penName }/comments`}>
                 My comments
               </a>
             </li>
@@ -141,12 +141,12 @@ export default class Navigation extends React.Component {
               </a>
             </li>
             <li className="navigation__user-menu-linklist-item">
-              <a className="navigation__user-menu-linklist-link" href={`/users/${ penName }/newsletters`}>
+              <a className="navigation__user-menu-linklist-link" href={`/user/${ penName }/newsletters`}>
                 Newsletters
               </a>
             </li>
             <li className="navigation__user-menu-linklist-item">
-              <a className="navigation__user-menu-linklist-link" href={`/users/${ penName }/comments`}>
+              <a className="navigation__user-menu-linklist-link" href={`/user/${ penName }/comments`}>
                 My comments
               </a>
             </li>
