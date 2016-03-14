@@ -85,7 +85,7 @@ export default class Navigation extends React.Component {
               </a>
             </li>
             <li className="navigation__user-menu-linklist-item">
-              <a className="navigation__user-menu-linklist-link" href="/subscriptions/renew">
+              <a className="navigation__user-menu-linklist-link" href="/products/renew">
                 Renew my subscription
               </a>
             </li>
