@@ -79,7 +79,7 @@
   z-index: 2;
 }
 
-/* stylelint-disable rule-no-duplicate-properties, selector-no-universal */
+/* stylelint-disable declaration-block-no-duplicate-properties, selector-no-universal */
 
 .navigation__primary-inner {
   display: table-row;
