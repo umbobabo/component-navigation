@@ -39,13 +39,6 @@
   display: none;
 }
 
-.navigation__mobile-accordion  .balloon-content {
-  top: 100%;
-  /* stylelint-disable */
-  left: 0 !important;
-  /* stylelint-enable */
-}
-
 .navigation__mobile-accordion .navigation__sections-link {
   display: flex;
   align-items: center;
@@ -59,11 +52,15 @@ need to have a fixed height */
 
 .navigation__mobile-accordion .balloon-content {
   overflow-y: auto;
+  top: 100%;
+  /* stylelint-disable */
+  left: 0 !important;
+  /* stylelint-enable */
   /* Worst case scenario considered is iPhone4 resolution */
-  /* stylelint-disable rule-no-duplicate-properties */
+  /* stylelint-disable declaration-block-no-duplicate-properties */
   max-height: 450px;
   max-height: calc(100vh - var(--navigation__default-height));
-  /* stylelint-enable rule-no-duplicate-properties */
+  /* stylelint-enable declaration-block-no-duplicate-properties */
   padding: 0;
 }
 
