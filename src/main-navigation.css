@@ -105,7 +105,7 @@
   .navigation__user-menu {
     padding: 0;
   }
-  .navigation__link.link-button--icon-background {
+  .navigation__user-menu-link.link-button--icon-background {
     /* Ensure tappability and consistency with other icons. */
     box-sizing: border-box;
     min-width: 64px;

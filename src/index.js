@@ -65,7 +65,7 @@ export default class Navigation extends React.Component {
     const userMenuBalloonTrigger = (
       <Button
         href={loginLogoutUrl}
-        className={`navigation__user-menu-link navigation__link navigation__user-menu-link--${ buttonClassSuffix }`}
+        className={`navigation__user-menu-link navigation__user-menu-link--${ buttonClassSuffix }`}
         icon={{ icon: 'user', color: 'thimphu', useBackground: true }}
         unstyled
       ><span className="navigation__user-menu-link-label">{buttonText}</span></Button>
@@ -196,7 +196,7 @@ export default class Navigation extends React.Component {
           <div className="navigation__search-close-button-wrapper">
             <Button
               unstyled
-              className="navigation__link navigation__search-close-button"
+              className="navigation__search-close-button"
               icon={{ icon: 'close', color: 'thimphu', useBackground: true }}
               onClick={this.closeSearchBar}
             />
@@ -210,14 +210,14 @@ export default class Navigation extends React.Component {
           <Button
             unstyled
             icon={{ icon: 'magnifier', size: '28px' }}
-            className="navigation__link navigation__collapsed-magnifier"
+            className="navigation__collapsed-magnifier"
             href="http://www.economist.com/search/"
             onClick={this.openSearchBar}
           />
           <Button
             unstyled
             icon={{ icon: 'magnifier', color: 'thimphu', useBackground: true }}
-            className="navigation__link navigation__search-open-button"
+            className="navigation__search-open-button"
             href="http://www.economist.com/search/"
             onClick={this.openSearchBar}
           >
@@ -268,7 +268,7 @@ export default class Navigation extends React.Component {
             title={this.props.sharedMenu.topic.title}
           />
           <a href="/printedition"
-            className="navigation__main-navigation-link navigation__link navigation__main-navigation--desktop"
+            className="navigation__main-navigation-link navigation__main-navigation--desktop"
           >
             Print edition
           </a>
@@ -279,7 +279,7 @@ export default class Navigation extends React.Component {
           />
           <div className="navigation__primary-expander" />
           <Button href={this.props.sharedMenu.subscribe.href}
-            className="navigation__main-navigation-link navigation__link navigation__main-navigation-link-subscribe
+            className="navigation__main-navigation-link navigation__main-navigation-link-subscribe
             navigation__main-navigation--desktop"
             target="_blank"
             i13nModel={{
