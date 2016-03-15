@@ -13,8 +13,9 @@
   padding: 0;
 }
 
-@media (--navigation-mobile-down) {
-  .navigation__mobile-accordion.navigation__main-navigation-link {
+.navigation__mobile-accordion.navigation__main-navigation-link {
+
+  @media (--navigation-mobile-down) {
     /* stylelint-disable */
     display: flex !important;
     /* stylelint-enable */
@@ -43,14 +44,6 @@
   position: static;
 }
 
-.navigation__mobile-accordion  .balloon-content {
-  top: 100%;
-  right: 0;
-  /* stylelint-disable */
-  left: 0 !important;
-  /* stylelint-enable */
-}
-
 .navigation__mobile-accordion .navigation__sections-link {
   display: flex;
   align-items: center;
@@ -65,14 +58,15 @@ need to have a fixed height */
 .navigation__mobile-accordion .balloon-content {
   overflow-y: auto;
   top: 100%;
-  /* stylelint-disable */
+  right: 0;
+  /* stylelint-disable declaration-no-important */
   left: 0 !important;
-  /* stylelint-enable */
+  /* stylelint-enable declaration-no-important */
   /* Worst case scenario considered is iPhone4 resolution */
-  /* stylelint-disable rule-no-duplicate-properties */
+  /* stylelint-disable declaration-block-no-duplicate-properties */
   max-height: 450px;
   max-height: calc(100vh - var(--navigation__default-height));
-  /* stylelint-enable rule-no-duplicate-properties */
+  /* stylelint-enable declaration-block-no-duplicate-properties */
   padding: 0;
 }
 
@@ -100,6 +94,7 @@ need to have a fixed height */
 }
 
 .navigation__mobile-accordion .accordion__link {
+  display: block;
   padding: 1em;
 }
 
@@ -135,8 +130,4 @@ need to have a fixed height */
   color: var(--color-thimphu);
   font-weight: normal;
   text-align: center;
-}
-
-.navigation__mobile-accordion .accordion__link {
-  display: block;
 }
