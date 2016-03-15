@@ -38481,17 +38481,17 @@ Library.prototype.test = function(obj, type) {
 },{}],508:[function(require,module,exports){
 'use strict';
 
-var _inherits = require('babel-runtime/helpers/inherits')['default'];
-
-var _createClass = require('babel-runtime/helpers/create-class')['default'];
-
-var _classCallCheck = require('babel-runtime/helpers/class-call-check')['default'];
-
-var _extends = require('babel-runtime/helpers/extends')['default'];
-
-var _interopRequireDefault = require('babel-runtime/helpers/interop-require-default')['default'];
-
 exports.__esModule = true;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var _economistComponentAccordion = require('@economist/component-accordion');
 
@@ -38965,12 +38965,12 @@ var Navigation = (function (_React$Component) {
 exports['default'] = Navigation;
 module.exports = exports['default'];
 
-},{"./parts/menu-more":509,"./parts/menu-topic":510,"@economist/component-accordion":1,"@economist/component-balloon":2,"@economist/component-google-search":3,"@economist/component-icon":4,"@economist/component-link-button":5,"@economist/component-sections-card":8,"babel-runtime/helpers/class-call-check":300,"babel-runtime/helpers/create-class":302,"babel-runtime/helpers/extends":304,"babel-runtime/helpers/inherits":305,"babel-runtime/helpers/interop-require-default":306,"react":"react","react-sticky-position":493}],509:[function(require,module,exports){
+},{"./parts/menu-more":509,"./parts/menu-topic":510,"@economist/component-accordion":1,"@economist/component-balloon":2,"@economist/component-google-search":3,"@economist/component-icon":4,"@economist/component-link-button":5,"@economist/component-sections-card":8,"react":"react","react-sticky-position":493}],509:[function(require,module,exports){
 'use strict';
 
-var _interopRequireDefault = require('babel-runtime/helpers/interop-require-default')['default'];
-
 exports.__esModule = true;
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 var _react = require('react');
 
@@ -39020,12 +39020,12 @@ MenuMore.propTypes = {
 exports['default'] = MenuMore;
 module.exports = exports['default'];
 
-},{"@economist/component-balloon":2,"@economist/component-sections-card":8,"babel-runtime/helpers/interop-require-default":306,"react":"react"}],510:[function(require,module,exports){
+},{"@economist/component-balloon":2,"@economist/component-sections-card":8,"react":"react"}],510:[function(require,module,exports){
 'use strict';
 
-var _interopRequireDefault = require('babel-runtime/helpers/interop-require-default')['default'];
-
 exports.__esModule = true;
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 var _economistComponentBalloon = require('@economist/component-balloon');
 
@@ -39072,10 +39072,10 @@ MenuTopic.propTypes = {
 exports['default'] = MenuTopic;
 module.exports = exports['default'];
 
-},{"@economist/component-balloon":2,"@economist/component-sections-card":8,"babel-runtime/helpers/interop-require-default":306,"react":"react"}],511:[function(require,module,exports){
+},{"@economist/component-balloon":2,"@economist/component-sections-card":8,"react":"react"}],511:[function(require,module,exports){
 'use strict';
 
-var _interopRequireDefault = require('babel-runtime/helpers/interop-require-default')['default'];
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 require('babel-polyfill');
 
@@ -39197,7 +39197,7 @@ describe('A navigation', function () {
   });
 });
 
-},{"../src":508,"./links":512,"@economist/component-sections-card/lib/context":7,"babel-polyfill":10,"babel-runtime/helpers/interop-require-default":306,"chai":385,"chai-react-element":384,"react":"react"}],512:[function(require,module,exports){
+},{"../src":508,"./links":512,"@economist/component-sections-card/lib/context":7,"babel-polyfill":10,"chai":385,"chai-react-element":384,"react":"react"}],512:[function(require,module,exports){
 module.exports={
   "subscribe": {
     "title": "Subscribe",
@@ -58638,9 +58638,9 @@ module.exports = warning;
 },{"./emptyFunction":649,"_process":470}],"example":[function(require,module,exports){
 'use strict';
 
-var _interopRequireDefault = require('babel-runtime/helpers/interop-require-default')['default'];
-
 exports.__esModule = true;
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 require('babel-polyfill');
 
@@ -58868,7 +58868,7 @@ exports['default'] = _react2['default'].createElement(
 module.exports = exports['default'];
 // eslint-disable-line id-length
 
-},{"./":508,"@economist/component-sections-card/lib/context":7,"babel-polyfill":10,"babel-runtime/helpers/interop-require-default":306,"react":"react","svg4everybody":505}],"react-dom":[function(require,module,exports){
+},{"./":508,"@economist/component-sections-card/lib/context":7,"babel-polyfill":10,"react":"react","svg4everybody":505}],"react-dom":[function(require,module,exports){
 'use strict';
 
 module.exports = require('react/lib/ReactDOM');
