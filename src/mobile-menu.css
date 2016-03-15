@@ -13,8 +13,9 @@
   padding: 0;
 }
 
-@media (--navigation-mobile-down) {
-  .navigation__mobile-accordion.navigation__main-navigation-link {
+.navigation__mobile-accordion.navigation__main-navigation-link {
+
+  @media (--navigation-mobile-down) {
     /* stylelint-disable */
     display: flex !important;
     /* stylelint-enable */
@@ -58,9 +59,9 @@ need to have a fixed height */
   overflow-y: auto;
   top: 100%;
   right: 0;
-  /* stylelint-disable */
+  /* stylelint-disable declaration-no-important */
   left: 0 !important;
-  /* stylelint-enable */
+  /* stylelint-enable declaration-no-important */
   /* Worst case scenario considered is iPhone4 resolution */
   /* stylelint-disable declaration-block-no-duplicate-properties */
   max-height: 450px;
@@ -92,6 +93,11 @@ need to have a fixed height */
   font-size: 1em;
 }
 
+.navigation__mobile-accordion .accordion__link {
+  display: block;
+  padding: 1em;
+}
+
 /* stylelint-disable */
 .navigation__mobile-accordion .Icon-down svg,
 .navigation__mobile-accordion .Icon-up svg {
@@ -104,11 +110,6 @@ need to have a fixed height */
 /* stylelint-enable */
   background-position: 1em 50%;
   background-size: 2em;
-}
-
-.navigation__mobile-accordion .accordion__link {
-  display: block;
-  padding: 1em;
 }
 
 .navigation__mobile-accordion .link-button--icon-background {
