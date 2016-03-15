@@ -6,10 +6,10 @@ import { PropTypes as T } from 'react';
 function MenuTopic({ href, title, sectionsCardData }) {
   return (
     <Balloon
-      className="navigation__main-navigation-link navigation__main-sections-card"
+      className="navigation__main-sections-card navigation__main-navigation--desktop"
       showOnHover
       trigger={(
-        <a href={href} className="navigation__sections-link">
+        <a href={href} className="navigation__sections-link navigation__main-navigation-link">
           {title}
         </a>
       )}

@@ -29,7 +29,7 @@
   text-decoration: none;
 }
 
-.navigation .navigation__main-navigation-link > span {
+.navigation .balloon > span {
   display: inline-block;
   height: 100%;
 }
@@ -78,6 +78,10 @@
   /* Stop this from being taller than screen */
   overflow-y: auto;
   max-height: calc(100vh - var(--navigation__default-height));
+}
+
+.balloon--not-visible {
+  overflow: hidden;
 }
 
 @media (--navigation-mobile-up) {

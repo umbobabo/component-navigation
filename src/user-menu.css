@@ -3,7 +3,7 @@
 
 .navigation__user-menu {
   display: flex;
-  padding: 0 var(--navigation__default-menus-padding, var(--main-navigation-link-padding));
+  padding: 0;
   align-items: stretch;
   font-family: inherit;
   font-size: var(--navigation__user-menu-link__font-size, var(--navigation-text-size));

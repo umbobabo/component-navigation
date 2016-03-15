@@ -267,7 +267,9 @@ export default class Navigation extends React.Component {
             sectionsCardData={this.props.sectionsCardData}
             title={this.props.sharedMenu.topic.title}
           />
-          <a href="/printedition" className="navigation__main-navigation-link navigation__link">
+          <a href="/printedition"
+            className="navigation__main-navigation-link navigation__link navigation__main-navigation--desktop"
+          >
             Print edition
           </a>
           <MenuMore
@@ -277,7 +279,9 @@ export default class Navigation extends React.Component {
           />
           <div className="navigation__primary-expander" />
           <Button href={this.props.sharedMenu.subscribe.href}
-            className="navigation__main-navigation-link navigation__link navigation__main-navigation-link-subscribe"
+            className="navigation__main-navigation-link navigation__link
+            navigation__main-navigation-link-subscribe
+            navigation__main-navigation--desktop"
             target="_blank"
             i13nModel={{
               action: 'click',

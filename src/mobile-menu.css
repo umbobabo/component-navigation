@@ -39,8 +39,13 @@
   display: none;
 }
 
+.navigation .navigation__mobile-accordion {
+  position: static;
+}
+
 .navigation__mobile-accordion  .balloon-content {
   top: 100%;
+  right: 0;
   /* stylelint-disable */
   left: 0 !important;
   /* stylelint-enable */
@@ -126,4 +131,8 @@ need to have a fixed height */
   color: var(--color-thimphu);
   font-weight: normal;
   text-align: center;
+}
+
+.navigation__mobile-accordion .accordion__link {
+  display: block;
 }
