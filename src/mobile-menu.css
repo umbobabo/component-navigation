@@ -43,14 +43,6 @@
   position: static;
 }
 
-.navigation__mobile-accordion  .balloon-content {
-  top: 100%;
-  right: 0;
-  /* stylelint-disable */
-  left: 0 !important;
-  /* stylelint-enable */
-}
-
 .navigation__mobile-accordion .navigation__sections-link {
   display: flex;
   align-items: center;
@@ -65,14 +57,15 @@ need to have a fixed height */
 .navigation__mobile-accordion .balloon-content {
   overflow-y: auto;
   top: 100%;
+  right: 0;
   /* stylelint-disable */
   left: 0 !important;
   /* stylelint-enable */
   /* Worst case scenario considered is iPhone4 resolution */
-  /* stylelint-disable rule-no-duplicate-properties */
+  /* stylelint-disable declaration-block-no-duplicate-properties */
   max-height: 450px;
   max-height: calc(100vh - var(--navigation__default-height));
-  /* stylelint-enable rule-no-duplicate-properties */
+  /* stylelint-enable declaration-block-no-duplicate-properties */
   padding: 0;
 }
 
@@ -99,10 +92,6 @@ need to have a fixed height */
   font-size: 1em;
 }
 
-.navigation__mobile-accordion .accordion__link {
-  padding: 1em;
-}
-
 /* stylelint-disable */
 .navigation__mobile-accordion .Icon-down svg,
 .navigation__mobile-accordion .Icon-up svg {
@@ -117,13 +106,17 @@ need to have a fixed height */
   background-size: 2em;
 }
 
+.navigation__mobile-accordion .accordion__link {
+  display: block;
+  padding: 1em;
+}
+
 .navigation__mobile-accordion .link-button--icon-background {
   padding-left: 3.5em;
 }
 
-/* Workaround to fix the no-baseline aligment of the font */
-
 .navigation__mobile-accordion .link-button--icon-background::before {
+  /* Workaround to fix the no-baseline aligment of the font */
   content: '';
   display: block;
   height: 0.28em;
@@ -135,8 +128,4 @@ need to have a fixed height */
   color: var(--color-thimphu);
   font-weight: normal;
   text-align: center;
-}
-
-.navigation__mobile-accordion .accordion__link {
-  display: block;
 }

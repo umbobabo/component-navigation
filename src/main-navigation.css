@@ -35,14 +35,11 @@
 .navigation__main-sections-card .balloon-content {
   right: 0;
   left: 0;
+  padding: 3em 0;
 }
 
 .navigation__primary-inner .navigation__main-sections-card {
   position: static;
-}
-
-.navigation__main-sections-card .balloon-content {
-  padding: 3em 0;
 }
 
 .navigation__main-navigation-link--not-visible .balloon-content {
@@ -79,7 +76,7 @@
   z-index: 2;
 }
 
-/* stylelint-disable rule-no-duplicate-properties, selector-no-universal */
+/* stylelint-disable declaration-block-no-duplicate-properties, selector-no-universal */
 
 .navigation__primary-inner {
   display: table-row;
